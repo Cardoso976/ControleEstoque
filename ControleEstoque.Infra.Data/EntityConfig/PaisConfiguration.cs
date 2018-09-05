@@ -15,7 +15,7 @@ namespace ControleEstoque.Infra.Data.EntityConfig
 
             Property(p => p.Codigo)
                 .IsRequired()
-                .HasMaxLength(2);
+                .HasMaxLength(3);
         }
     }
 }

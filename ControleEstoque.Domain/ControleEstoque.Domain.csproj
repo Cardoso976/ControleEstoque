@@ -42,10 +42,21 @@
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Produto.cs" />
     <Compile Include="Entities\UnidadeMedida.cs" />
+    <Compile Include="Interfaces\ICidadeRepository.cs" />
+    <Compile Include="Interfaces\IClienteRepository.cs" />
+    <Compile Include="Interfaces\IEnderecoRepository.cs" />
+    <Compile Include="Interfaces\IEstadoRepository.cs" />
+    <Compile Include="Interfaces\IFornecedorRepository.cs" />
+    <Compile Include="Interfaces\IGrupoProdutoRepository.cs" />
+    <Compile Include="Interfaces\ILocalArmazenamentoRepository.cs" />
+    <Compile Include="Interfaces\IMarcaProdutoRepository.cs" />
+    <Compile Include="Interfaces\IPaisRepository.cs" />
+    <Compile Include="Interfaces\IProdutoRepository.cs" />
+    <Compile Include="Interfaces\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\IUnidadeMedidaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
