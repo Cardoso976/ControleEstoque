@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-using AutoMapper;
-using ControleEstoque.Application;
+﻿using AutoMapper;
+using ControleEstoque.Application.Interface;
 using ControleEstoque.Domain.Entities;
 using ControleEstoque.MVC.ViewModels;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace ControleEstoque.MVC.Controllers
 {
     public class PaisesController : Controller
     {
-        private readonly PaisAppService _paisApp;
+        private readonly IPaisAppService _paisApp;
 
-        public PaisesController(PaisAppService paisApp)
+        public PaisesController(IPaisAppService paisApp)
         {
             _paisApp = paisApp;
         }

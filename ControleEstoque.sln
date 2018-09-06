@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.Infra.Data", "ControleEstoque.Infra.Data\ControleEstoque.Infra.Data.csproj", "{4B4F4402-1701-4C98-B41F-EF4FE4D26CFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleEstoque.IoC", "ControleEstoque.IoC\ControleEstoque.IoC.csproj", "{FCA01FAB-3157-4EF6-989B-9B22C6FB52D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{4B4F4402-1701-4C98-B41F-EF4FE4D26CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B4F4402-1701-4C98-B41F-EF4FE4D26CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B4F4402-1701-4C98-B41F-EF4FE4D26CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA01FAB-3157-4EF6-989B-9B22C6FB52D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA01FAB-3157-4EF6-989B-9B22C6FB52D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA01FAB-3157-4EF6-989B-9B22C6FB52D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA01FAB-3157-4EF6-989B-9B22C6FB52D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +62,7 @@ Global
 		{B0B2CDAE-D18F-4F77-AFF0-52B75DBBE079} = {2AE3F5F1-9CFF-48F9-BE35-A715BE544ACA}
 		{EA140904-CE50-4102-B610-63849CC6AD1B} = {8BF4A3CC-D5A1-44A3-B0D3-7C463A3FEB82}
 		{4B4F4402-1701-4C98-B41F-EF4FE4D26CFD} = {86809504-5C4D-4C68-A751-F17ED96C7055}
+		{FCA01FAB-3157-4EF6-989B-9B22C6FB52D8} = {A4182308-6A14-46D0-A46D-29A61954E7FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9F1D49E-67DA-4887-AFAB-BE003B5BFF85}
