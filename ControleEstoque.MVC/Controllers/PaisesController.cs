@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ControleEstoque.Infra.Data.Repositories;
 using System.Web.Mvc;
 using AutoMapper;
+using ControleEstoque.Application;
 using ControleEstoque.Domain.Entities;
 using ControleEstoque.MVC.ViewModels;
 
@@ -9,19 +9,27 @@ namespace ControleEstoque.MVC.Controllers
 {
     public class PaisesController : Controller
     {
-        private readonly PaisRepository _paisRepository = new PaisRepository();
+        private readonly PaisAppService _paisApp;
+
+        public PaisesController(PaisAppService paisApp)
+        {
+            _paisApp = paisApp;
+        }
 
         // GET: Paises
         public ActionResult Index()
         {
-            var clienteViewModel = Mapper.Map<IEnumerable<Pais>, IEnumerable<PaisViewModel>>(_paisRepository.GetAll());
-            return View(clienteViewModel);
+            var paisViewModel = Mapper.Map<IEnumerable<Pais>, IEnumerable<PaisViewModel>>(_paisApp.GetAll());
+            return View(paisViewModel);
         }
 
         // GET: Paises/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var pais = _paisApp.GetById(id);
+            var paisViewModel = Mapper.Map<Pais, PaisViewModel>(pais);
+
+            return View(paisViewModel);
         }
 
         // GET: Paises/Create
@@ -37,8 +45,8 @@ namespace ControleEstoque.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var clienteDomain = Mapper.Map<PaisViewModel, Pais>(pais);
-                _paisRepository.Add(clienteDomain);
+                var paisDomain = Mapper.Map<PaisViewModel, Pais>(pais);
+                _paisApp.Add(paisDomain);
 
                 return RedirectToAction("Index");
             }
@@ -49,45 +57,46 @@ namespace ControleEstoque.MVC.Controllers
         // GET: Paises/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var pais = _paisApp.GetById(id);
+            var paisViewModel = Mapper.Map<Pais, PaisViewModel>(pais);
+
+            return View(paisViewModel);
         }
 
         // POST: Paises/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PaisViewModel pais)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var paisDomain = Mapper.Map<PaisViewModel, Pais>(pais);
+                _paisApp.Update(paisDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(pais);
         }
 
         // GET: Paises/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var pais = _paisApp.GetById(id);
+            var paisViewModel = Mapper.Map<Pais, PaisViewModel>(pais);
+
+            return View(paisViewModel);
         }
 
         // POST: Paises/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var pais = _paisApp.GetById(id);
+            _paisApp.Remove(pais);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
