@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ControleEstoque.Domain.Entities;
-using ControleEstoque.Domain.Interfaces;
+using ControleEstoque.Domain.Interfaces.Repositories;
 
 namespace ControleEstoque.Infra.Data.Repositories
 {

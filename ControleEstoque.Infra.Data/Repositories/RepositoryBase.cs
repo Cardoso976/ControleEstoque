@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using ControleEstoque.Domain.Interfaces;
+using ControleEstoque.Domain.Interfaces.Repositories;
 using ControleEstoque.Infra.Data.Contexto;
 
 namespace ControleEstoque.Infra.Data.Repositories
