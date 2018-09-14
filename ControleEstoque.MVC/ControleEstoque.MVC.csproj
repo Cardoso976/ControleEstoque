@@ -211,6 +211,8 @@
     <Content Include="Content\css\bootstrap-select.css" />
     <Content Include="Content\css\bootstrap-select.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\datatables.css" />
+    <Content Include="Content\css\datatables.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\icheck\aero.css" />
     <Content Include="Content\css\icheck\aero.min.css" />
@@ -280,8 +282,15 @@
     <Content Include="Content\img\icheck\red.png" />
     <Content Include="Content\img\icheck\yellow%402x.png" />
     <Content Include="Content\img\icheck\yellow.png" />
+    <Content Include="Content\img\sort_asc.png" />
+    <Content Include="Content\img\sort_asc_disabled.png" />
+    <Content Include="Content\img\sort_both.png" />
+    <Content Include="Content\img\sort_desc.png" />
+    <Content Include="Content\img\sort_desc_disabled.png" />
     <Content Include="Content\img\user.jpg" />
     <Content Include="Content\js\adminlte.js" />
+    <Content Include="Content\js\datatables.js" />
+    <Content Include="Content\js\datatables.min.js" />
     <Content Include="Content\js\init.js" />
     <Content Include="Content\js\plugins\bootstrap-select\bootstrap-select.js" />
     <Content Include="Content\js\plugins\bootstrap-select\bootstrap-select.min.js" />
