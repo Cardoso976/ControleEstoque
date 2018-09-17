@@ -1,5 +1,4 @@
-﻿@using System.Web.Optimization
-@using WebHelpers.Mvc5.Enum
+﻿@using WebHelpers.Mvc5.Enum
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,29 +20,30 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-    @Html.Partial("_Header")
-    @Html.Partial("_Sidebar")
+    <div class="wrapper">
+        @Html.Partial("_Header")
+        @Html.Partial("_Sidebar")
 
-    <div class="content-wrapper">
-        <section class="content-header">
-            <h1>
-                @ViewBag.Title
-                <small>@ViewBag.Description</small>
-            </h1>
-        </section>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                    @ViewBag.Title
+                    <small>@ViewBag.Description</small>
+                </h1>
+            </section>
 
-        <section class="content">
-            @RenderBody()
-        </section>
+            <section class="content">
+                @RenderBody()
+            </section>
+        </div>
+
+        @Html.Partial("_ControlSidebar")
     </div>
 
-    @Html.Partial("_ControlSidebar")
-</div>
-
-<script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
-<script src="@EnumHandler.HandlerUrl"></script>
-@Scripts.Render("~/Bundles/js")
-@RenderSection("ViewSpecificJavascript", required: false)
+    <script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
+    <script src="@EnumHandler.HandlerUrl"></script>
+    @Scripts.Render("~/Bundles/js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("ViewSpecificJavascript", required: false)
 </body>
 </html>

@@ -25,6 +25,7 @@ namespace ControleEstoque.Infra.Data.Contexto
         public DbSet<Pais> Paises { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<UnidadeMedida> UnidadeMedidas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

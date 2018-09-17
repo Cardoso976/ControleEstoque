@@ -9,6 +9,11 @@ namespace ControleEstoque.MVC.Controllers
             return View();
         }
 
+        public ActionResult AnotherLink()
+        {
+            return View("Index");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

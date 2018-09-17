@@ -41,6 +41,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -64,6 +70,10 @@
     <ProjectReference Include="..\ControleEstoque.Domain\ControleEstoque.Domain.csproj">
       <Project>{b0b2cdae-d18f-4f77-aff0-52b75dbbe079}</Project>
       <Name>ControleEstoque.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleEstoque.Identity\ControleEstoque.Identity.csproj">
+      <Project>{B2D85844-D433-4A3F-BC18-349CAA2A4E9C}</Project>
+      <Name>ControleEstoque.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\ControleEstoque.Infra.Data\ControleEstoque.Infra.Data.csproj">
       <Project>{4b4f4402-1701-4c98-b41f-ef4fe4d26cfd}</Project>
