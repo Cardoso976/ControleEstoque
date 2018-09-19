@@ -23,6 +23,12 @@ namespace ControleEstoque.MVC.Controllers
             return View(paisViewModel);
         }
 
+        public JsonResult GetPaises()
+        {
+            var paisViewModel = Mapper.Map<IEnumerable<Pais>, IEnumerable<PaisViewModel>>(_paisApp.GetAll());
+            return Json(new { data = paisViewModel }, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Paises/Details/5
         public ActionResult Details(int id)
         {

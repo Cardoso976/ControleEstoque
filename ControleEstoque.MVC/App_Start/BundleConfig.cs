@@ -22,9 +22,22 @@ namespace ControleEstoque.MVC
             //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
             //          "~/Scripts/bootstrap.js"));
 
-            //bundles.Add(new StyleBundle("~/Content/css").Include(
-            //          "~/Content/bootstrap.css",
-            //          "~/Content/site.css"));
+
+            //DataTables
+            bundles.Add(new StyleBundle("~/Bundles/DataTables/css").Include(
+                      "~/Content/DataTables-1.10.18/css/dataTables.bootstrap.min.css",
+                      "~/Content/Buttons-1.5.2/css/buttons.bootstrap.min.css"));
+            bundles.Add(new ScriptBundle("~/bundles/DataTables/js").Include(
+                "~/Content/pdfmake-0.1.36/pdfmake.min.js",
+                "~/Content/pdfmake-0.1.36/pdfmake.min.js",
+                "~/Content/pdfmake-0.1.36/vfs_fonts.js",
+                "~/Content/DataTables-1.10.18/js/jquery.dataTables.min.js",
+                "~/Content/DataTables-1.10.18/js/dataTables.bootstrap.min.js",
+                "~/Content/Buttons-1.5.2/js/dataTables.buttons.min.js",
+                "~/Content/Buttons-1.5.2/js/buttons.bootstrap.min.js",
+                "~/Content/Buttons-1.5.2/js/buttons.flash.min.js",
+                "~/Content/Buttons-1.5.2/js/buttons.html5.js"));
+
 
             //AdminLTE
             bundles.Add(new ScriptBundle("~/Bundles/js")

@@ -3,43 +3,44 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Codigo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ativo)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Codigo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ativo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PaisId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PaisId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PaisId })
-        </td>
-    </tr>
-}
-
-</table>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table id="myDataTable" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>PaisId</th>
+                                        <th>Descrição</th>
+                                        <th>Codigo</th>
+                                        <th>Ativo</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/Bundles/js")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/Bundles/DataTables/js")
+<script>
+    $('#myDataTable').DataTable({
+        "ajax": "/Paises/GetPaises",
+        "columns": [
+            { "data": "PaisId" },
+            { "data": "Descricao" },
+            { "data": "Codigo" },
+            { "data": "Ativo" }
+        ]
+    });
+</script>
