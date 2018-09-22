@@ -4,6 +4,7 @@ using ControleEstoque.Application.Interface;
 using ControleEstoque.Domain.Entities;
 using ControleEstoque.MVC.ViewModels;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace ControleEstoque.MVC.Controllers
@@ -25,7 +26,6 @@ namespace ControleEstoque.MVC.Controllers
 
         public JsonResult GetPaises()
         {
-            throw new Exception();
             var paisViewModel = Mapper.Map<IEnumerable<Pais>, IEnumerable<PaisViewModel>>(_paisApp.GetAll());
             return Json(new { data = paisViewModel }, JsonRequestBehavior.AllowGet);
         }
@@ -44,15 +44,31 @@ namespace ControleEstoque.MVC.Controllers
         //[ValidateAntiForgeryToken]
         public JsonResult Create(PaisViewModel pais)
         {
-            if (ModelState.IsValid)
-            {
-                var paisDomain = Mapper.Map<PaisViewModel, Pais>(pais);
-                _paisApp.Add(paisDomain);
+            var resultado = "OK";
+            var mensagens = new List<string>();
+            var idSalvo = string.Empty;
 
-                return Json("OK");
+            if (!ModelState.IsValid)
+            {
+                resultado = "AVISO";
+                mensagens = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList();
+            }
+            else
+            {
+                try
+                {
+                    var paisDomain = Mapper.Map<PaisViewModel, Pais>(pais);
+                    _paisApp.Add(paisDomain);
+                    idSalvo = paisDomain.PaisId.ToString();
+                }
+                catch (Exception ex)
+                {
+                    resultado = "ERRO";
+                }
+
             }
 
-            return Json("Erro");
+            return Json(new { Resultado = resultado, Mensagens = mensagens, IdSalvo = idSalvo });
         }
 
         // POST: Paises/Edit/5
@@ -60,15 +76,31 @@ namespace ControleEstoque.MVC.Controllers
         //[ValidateAntiForgeryToken]
         public JsonResult Edit(PaisViewModel pais)
         {
-            if (ModelState.IsValid)
-            {
-                var paisDomain = Mapper.Map<PaisViewModel, Pais>(pais);
-                _paisApp.Update(paisDomain);
+            var resultado = "OK";
+            var mensagens = new List<string>();
+            var paisViewModel = pais;
 
-                return Json("Ok");
+            if (!ModelState.IsValid)
+            {
+                resultado = "AVISO";
+                mensagens = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList();
+            }
+            else
+            {
+                try
+                {
+                    var paisDomain = Mapper.Map<PaisViewModel, Pais>(pais);
+                    _paisApp.Update(paisDomain);
+                    paisViewModel = Mapper.Map<Pais, PaisViewModel>(paisDomain);
+                }
+                catch (Exception ex)
+                {
+                    resultado = "ERRO";
+                }
+
             }
 
-            return Json("Erro");
+            return Json(new { Resultado = resultado, Mensagens = mensagens, data = paisViewModel });
         }
 
         // POST: Paises/Delete/5
@@ -76,10 +108,18 @@ namespace ControleEstoque.MVC.Controllers
         //[ValidateAntiForgeryToken]
         public JsonResult DeleteConfirmed(int id)
         {
-            var pais = _paisApp.GetById(id);
-            _paisApp.Remove(pais);
+            var resultado = true;
+            try
+            {
+                var pais = _paisApp.GetById(id);
+                _paisApp.Remove(pais);
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+            }
 
-            return Json("Ok");
+            return Json(resultado);
         }
     }
 }
