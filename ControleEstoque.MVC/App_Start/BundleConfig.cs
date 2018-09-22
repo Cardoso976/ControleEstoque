@@ -27,7 +27,8 @@ namespace ControleEstoque.MVC
             bundles.Add(new StyleBundle("~/Bundles/DataTables/css").Include(
                       "~/Content/DataTables-1.10.18/css/dataTables.bootstrap.min.css",
                       "~/Content/Buttons-1.5.2/css/buttons.bootstrap.min.css"));
-            bundles.Add(new ScriptBundle("~/bundles/DataTables/js").Include(
+            bundles.Add(new ScriptBundle("~/Bundles/DataTables/js").Include(
+                "~/Scripts/jquery-{version}.js",
                 "~/Content/pdfmake-0.1.36/pdfmake.min.js",
                 "~/Content/pdfmake-0.1.36/pdfmake.min.js",
                 "~/Content/pdfmake-0.1.36/vfs_fonts.js",

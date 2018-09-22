@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<ControleEstoque.MVC.ViewModels.PaisViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Países";
 }
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@Styles.Render("~/Bundles/DataTables/css")
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -13,7 +11,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <table id="myDataTable" class="table table-bordered table-striped table-hover">
+                            <table id="TabelaPais" class="table table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>PaisId</th>
@@ -30,17 +28,6 @@
         </div>
     </div>
 </div>
-@Scripts.Render("~/Bundles/js")
-@Scripts.Render("~/bundles/jqueryval")
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
 @Scripts.Render("~/Bundles/DataTables/js")
-<script>
-    $('#myDataTable').DataTable({
-        "ajax": "/Paises/GetPaises",
-        "columns": [
-            { "data": "PaisId" },
-            { "data": "Descricao" },
-            { "data": "Codigo" },
-            { "data": "Ativo" }
-        ]
-    });
-</script>
+<script src="~/Scripts/Cadastros/CadPais.js"></script>

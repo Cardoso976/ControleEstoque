@@ -1824,7 +1824,7 @@
     <Content Include="Content\Buttons-1.5.2\css\common.scss" />
     <Content Include="Content\Buttons-1.5.2\css\mixins.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\CadastroBase.js" />
+    <Content Include="Scripts\Cadastros\CadPais.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
