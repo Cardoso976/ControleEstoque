@@ -16,7 +16,7 @@
     <link href="~/Content/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- Ionicons -->
     <link href="~/Content/bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
-    @Styles.Render("~/Bundles/css")
+    @Styles.Render("~/Bundles/adminlte/css")
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -40,8 +40,8 @@
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Senha" })
-                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
@@ -60,13 +60,15 @@
                 </div>
             }
 
-            @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword")<br/>
+            @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword")<br />
             @Html.ActionLink("Registrar uma nova conta?", "Register")
 
         </div>
         <!-- /.login-box-body -->
     </div>
-    @Scripts.Render("~/Bundles/js")
-    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/bundles/jquery")
+    @Styles.Render("~/bundles/jqueryval")
+    @Styles.Render("~/bundles/bootstrap/js")
+    @Styles.Render("~/Bundles/adminltejs")
 </body>
 </html>

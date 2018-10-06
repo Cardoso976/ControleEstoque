@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ControleEstoque.MVC.Controllers
 {
+    //[Authorize]
     public class PaisesController : Controller
     {
         private readonly IPaisAppService _paisApp;
@@ -47,6 +48,7 @@ namespace ControleEstoque.MVC.Controllers
             var resultado = "OK";
             var mensagens = new List<string>();
             var idSalvo = string.Empty;
+            pais.PaisId = 0;
 
             if (!ModelState.IsValid)
             {
@@ -73,7 +75,7 @@ namespace ControleEstoque.MVC.Controllers
 
         // POST: Paises/Edit/5
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public JsonResult Edit(PaisViewModel pais)
         {
             var resultado = "OK";
@@ -105,7 +107,7 @@ namespace ControleEstoque.MVC.Controllers
 
         // POST: Paises/Delete/5
         [HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public JsonResult DeleteConfirmed(int id)
         {
             var resultado = true;

@@ -1609,6 +1609,7 @@
     <Content Include="Content\Buttons-1.5.2\js\dataTables.buttons.js" />
     <Content Include="Content\Buttons-1.5.2\js\dataTables.buttons.min.js" />
     <Content Include="Content\Buttons-1.5.2\swf\flashExport.swf" />
+    <Content Include="Content\Cadastros.css" />
     <Content Include="Content\css\AdminLTE.css" />
     <Content Include="Content\css\AdminLTE.min.css" />
     <Content Include="Content\css\bootstrap-datepicker3.min.css" />
@@ -1664,6 +1665,7 @@
     <Content Include="Content\css\skins\skin-yellow.min.css" />
     <Content Include="Content\css\skins\_all-skins.css" />
     <Content Include="Content\css\skins\_all-skins.min.css" />
+    <Content Include="Content\sweetalert2.min.css" />
     <Content Include="Content\DataTables-1.10.18\css\dataTables.bootstrap.css" />
     <Content Include="Content\DataTables-1.10.18\css\dataTables.bootstrap.min.css" />
     <Content Include="Content\DataTables-1.10.18\css\dataTables.bootstrap4.css" />
@@ -1693,6 +1695,7 @@
     <Content Include="Content\DataTables-1.10.18\js\dataTables.semanticui.min.js" />
     <Content Include="Content\DataTables-1.10.18\js\jquery.dataTables.js" />
     <Content Include="Content\DataTables-1.10.18\js\jquery.dataTables.min.js" />
+    <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\icheck\aero%402x.png" />
@@ -1748,6 +1751,7 @@
     <Content Include="Content\pdfmake-0.1.36\pdfmake.js" />
     <Content Include="Content\pdfmake-0.1.36\pdfmake.min.js" />
     <Content Include="Content\pdfmake-0.1.36\vfs_fonts.js" />
+    <Content Include="Scripts\sweetalert2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
