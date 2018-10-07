@@ -7,14 +7,14 @@ namespace ControleEstoque.MVC.ViewModels
         [Key]
         public int PaisId { get; set; }
 
-        [Required(ErrorMessage = "Preencha o campo Descricao")]
-        [MaxLength(150, ErrorMessage = "Máximo 150 caracteres")]
-        [MinLength(2, ErrorMessage = "Mínimo 2 caracteres")]
+        [Required(ErrorMessage = "Preencha o campo Descrição")]
+        [MaxLength(150, ErrorMessage = "Descrição máximo 150 caracteres")]
+        [MinLength(2, ErrorMessage = "Descrição mínimo 2 caracteres")]
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "Preencha o campo Código")]
-        [MaxLength(3, ErrorMessage = "Máximo 3 caracteres")]
-        [MinLength(2, ErrorMessage = "Mínimo 2 caracteres")]
+        [MaxLength(3, ErrorMessage = "Código máximo 3 caracteres")]
+        [MinLength(2, ErrorMessage = "Código mínimo 2 caracteres")]
         public string Codigo { get; set; }
 
         public bool Ativo { get; set; }

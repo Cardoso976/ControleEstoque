@@ -15,7 +15,7 @@
     <link href="~/Content/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <!-- Ionicons -->
     <link href="~/Content/bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
-    @Styles.Render("~/Bundles/css")
+    @Styles.Render("~/Bundles/adminlte/css")
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -55,11 +55,13 @@
             }
 
 
-            @Html.ActionLink("Possui conta?", "Login")
+            @Html.ActionLink("Possui uma conta?", "Login")
         </div>
         <!-- /.form-box -->
     </div>
-    @Scripts.Render("~/Bundles/js")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/Bundles/adminltejs")
 </body>
 </html>

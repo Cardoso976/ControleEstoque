@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace ControleEstoque.MVC.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class PaisesController : Controller
     {
         private readonly IPaisAppService _paisApp;
@@ -42,13 +42,12 @@ namespace ControleEstoque.MVC.Controllers
 
         // POST: Paises/Create
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public JsonResult Create(PaisViewModel pais)
         {
             var resultado = "OK";
             var mensagens = new List<string>();
             var idSalvo = string.Empty;
-            pais.PaisId = 0;
 
             if (!ModelState.IsValid)
             {

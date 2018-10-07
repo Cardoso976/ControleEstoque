@@ -1751,6 +1751,8 @@
     <Content Include="Content\pdfmake-0.1.36\pdfmake.js" />
     <Content Include="Content\pdfmake-0.1.36\pdfmake.min.js" />
     <Content Include="Content\pdfmake-0.1.36\vfs_fonts.js" />
+    <Content Include="Scripts\Account\Login.js" />
+    <Content Include="Scripts\icheck.js" />
     <Content Include="Scripts\sweetalert2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

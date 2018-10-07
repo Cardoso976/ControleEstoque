@@ -27,14 +27,14 @@ namespace ControleEstoque.MVC
 
             //AdminLTE
             bundles.Add(new StyleBundle("~/Bundles/adminlte/css").Include(
-                "~/Content/css/bootstrap.min.css",
-                "~/Content/Buttons-1.5.2/css/buttons.bootstrap.min.css",
-                "~/Content/css/bootstrap-select.css",
-                "~/Content/css/bootstrap-datepicker3.min.css",
-                "~/Content/css/font-awesome.min.css",
-                "~/Content/css/AdminLTE.css",
-                "~/Content/css/skins/skin-blue.css")
-                .Include("~/Content/css/icheck/blue.min.css", new CssRewriteUrlTransformAbsolute()));
+                    "~/Content/bootstrap.min.css",
+                    "~/Content/Buttons-1.5.2/css/buttons.bootstrap.min.css",
+                    "~/Content/css/bootstrap-select.css",
+                    "~/Content/css/bootstrap-datepicker3.min.css",
+                    "~/Content/css/font-awesome.min.css")
+                .Include("~/Content/css/skins/skin-blue.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/css/icheck/blue.min.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/css/AdminLTE.css", new CssRewriteUrlTransformAbsolute()));
 
             //DataTables
             bundles.Add(new StyleBundle("~/Bundles/datatables/css").Include(
@@ -52,14 +52,13 @@ namespace ControleEstoque.MVC
 
             //AdminLTE
             bundles.Add(new ScriptBundle("~/Bundles/adminltejs").Include(
-                "~/Content/js/plugins/fastclick/fastclick.js",
-                "~/Content/js/plugins/slimscroll/jquery.slimscroll.js",
-                "~/Content/js/plugins/bootstrap-select/bootstrap-select.js",
                 "~/Content/js/plugins/moment/moment.js",
                 "~/Content/js/plugins/datepicker/bootstrap-datepicker.js",
-                "~/Content/js/plugins/icheck/icheck.js",
+                "~/Content/js/plugins/slimscroll/jquery.slimscroll.js",
                 "~/Content/js/plugins/validator.js",
                 "~/Content/js/plugins/inputmask/jquery.inputmask.bundle.js",
+                "~/Scripts/icheck.js",
+                "~/Content/js/plugins/fastclick/fastclick.js",
                 "~/Content/js/adminlte.js",
                 "~/Content/js/init.js"));
 

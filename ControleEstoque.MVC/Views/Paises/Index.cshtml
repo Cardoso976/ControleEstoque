@@ -16,13 +16,13 @@
                             </div>
                             <table id="TabelaPais" class="table table-striped table-bordered nowrap">
                                 <thead>
-                                <tr>
-                                    <th>PaisId</th>
-                                    <th>Descrição</th>
-                                    <th>Codigo</th>
-                                    <th>Ativo</th>
-                                    <th>Ações</th>
-                                </tr>
+                                    <tr>
+                                        <th>PaisId</th>
+                                        <th>Descrição</th>
+                                        <th>Codigo</th>
+                                        <th>Ativo</th>
+                                        <th>Ações</th>
+                                    </tr>
                                 </thead>
                             </table>
                         </div>
@@ -52,8 +52,9 @@
         <div class="row" style="margin-top: 15px">
             <div class="col-md-12">
                 <div class="form-group">
-                    @Html.CheckBox("cbx_ativo", new { @class = "form-control" })
-                    @Html.Label("cbx_ativo", "Ativo")
+                    <input id="cbx_ativo" type="checkbox"> <label>Ativo</label>
+                    @*@Html.CheckBox("cbx_ativo", new { @class = "form-control" })
+                    @Html.Label("cbx_ativo", "Ativo")*@
                 </div>
             </div>
         </div>

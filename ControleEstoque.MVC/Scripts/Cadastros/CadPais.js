@@ -2,6 +2,8 @@
     getTabela();
 });
 
+var linha;
+
 function getTabela() {
     var table = $('#TabelaPais').DataTable(
         {
@@ -24,13 +26,19 @@ function getTabela() {
         });
 
     $("#TabelaPais").on('click', 'a.btn-alterar', function () {
-        console.log("fui clicado");
+        var tr = $(this).closest('tr'),
+            id = table.row(tr).data().PaisId,
+            url = '/Paises/Details',
+            param = { 'id': id };
+        $.post(url, add_anti_forgery_token(param), function (f) {
+            abrir_form(f.data);
+            linha = table.row(tr);
+        })
     })
         //Excluir Linha
         .on('click', 'a.btn-excluir', function () {
-            var btn = $(this),
-                tr = btn.closest('tr'),
-                id = table.row(btn.parents('tr')).data().PaisId,
+            var tr = $(this).closest('tr'),
+                id = table.row(tr).data().PaisId,
                 url = '/Paises/Delete',
                 param = { 'id': id };
 
@@ -55,13 +63,13 @@ function getTabela() {
                                 'Seu dado foi excluído.',
                                 'success'
                             )
-                        } 
+                        }
                     })
-                        .fail(function() {
+                        .fail(function () {
                             swal('Aviso', 'Não foi possível excluir. Tente novamente em instantes.', 'warning');
                         })
 
-                } else  {
+                } else {
                     swal(
                         'Cancelado',
                         'Seu arquivo imaginário está seguro :)',
@@ -73,24 +81,46 @@ function getTabela() {
 
     //Adicionar Linha
     $(document).on('click', '.btn-adicionar', function () {
-            
-        abrir_form(get_dados_inclusao);
-        //table.row.add().draw(false);
+        abrir_form(get_dados_inclusao());
     })
         .on('click', '#btn_confirmar', function () {
-            debugger;
-            var btn = $(this),
-                url = '/Paises/Create',
-                param = get_dados_form();
-            $.post(url, param, function (response) {
-                if (response.resultado == "ERRO" || response.resultado == "AVISO") {
-                    console.log(response);
-                } else {
-                    table.row.add(response).draw(false);
+            var param = get_dados_form(),
+                url = param.PaisId == 0 ? '/Paises/Create' : '/Paises/Edit';
+
+            $.post(url, add_anti_forgery_token(param), function (f) {
+                if (f.Resultado == "OK") {
+                    if (param.PaisId == 0) {
+                        param.PaisId = f.IdSalvo;
+                        table.row.add(param).draw(false);
+                    } else {
+                        linha.data(f.data).invalidate().draw();
+                    }
+                    $('#modal_cadastro').parents('.bootbox').modal('hide');
+                }
+                else if (f.Resultado == "ERRO") {
+                    $('#msg_aviso').hide();
+                    $('#msg_mensagem_aviso').hide();
+                    $('#msg_erro').show();
+                }
+                else if (f.Resultado == "AVISO") {
+                    $('#msg_mensagem_aviso').html(formatar_mensagem_aviso(f.Mensagens));
+                    $('#msg_aviso').show();
+                    $('#msg_mensagem_aviso').show();
+                    $('#msg_erro').hide();
                 }
             })
-                
+
         })
+}
+
+function formatar_mensagem_aviso(mensagens) {
+    var ret = '';
+
+    for (var i = 0; i < mensagens.length; i++) {
+        ret += '<li>' + mensagens[i] + '</li>';
+    }
+
+    return '<ul>' + ret + '</ul>';
 }
 
 function get_dados_inclusao() {
@@ -115,11 +145,11 @@ function set_dados_form(dados) {
     $('#id_cadastro').val(dados.PaisId);
     $('#txt_descricao').val(dados.Descricao);
     $('#txt_codigo').val(dados.Codigo);
-    $('#cbx_ativo').prop('checked', dados.Ativo);
+    $('#cbx_ativo').prop('checked', dados.Ativo).iCheck('update');
 }
 
 function set_focus_form() {
-    $('#txt_nome').focus();
+    $('#txt_descricao').focus();
 }
 
 function abrir_form(dados) {
