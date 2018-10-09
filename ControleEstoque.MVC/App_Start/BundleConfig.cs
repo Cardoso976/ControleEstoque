@@ -31,9 +31,9 @@ namespace ControleEstoque.MVC
                     "~/Content/Buttons-1.5.2/css/buttons.bootstrap.min.css",
                     "~/Content/css/bootstrap-select.css",
                     "~/Content/css/bootstrap-datepicker3.min.css",
-                    "~/Content/css/font-awesome.min.css")
+                    "~/Content/css/font-awesome.min.css",
+                    "~/Content/Site.css")
                 .Include("~/Content/css/skins/skin-blue.css", new CssRewriteUrlTransformAbsolute())
-                .Include("~/Content/css/icheck/blue.min.css", new CssRewriteUrlTransformAbsolute())
                 .Include("~/Content/css/AdminLTE.css", new CssRewriteUrlTransformAbsolute()));
 
             //DataTables
@@ -44,10 +44,13 @@ namespace ControleEstoque.MVC
 
             //DataTables
             bundles.Add(new ScriptBundle("~/Bundles/datatables/js").Include(
-                "~/Content/pdfmake-0.1.36/pdfmake.min.js",
-                "~/Content/pdfmake-0.1.36/pdfmake.min.js",
                 "~/Content/DataTables-1.10.18/js/jquery.dataTables.min.js",
-                "~/Content/DataTables-1.10.18/js/dataTables.bootstrap.min.js"));
+                "~/Content/DataTables-1.10.18/js/dataTables.bootstrap.min.js",
+                "~/Scripts/dataTables.buttons.min.js",
+                "~/Content/pdfmake-0.1.36/pdfmake.min.js",
+                "~/Scripts/vfs_fonts.js",
+                "~/Scripts/buttons.html5.min.js",
+                "~/Scripts/buttons.print.min.js"));
 
 
             //AdminLTE
@@ -57,7 +60,6 @@ namespace ControleEstoque.MVC
                 "~/Content/js/plugins/slimscroll/jquery.slimscroll.js",
                 "~/Content/js/plugins/validator.js",
                 "~/Content/js/plugins/inputmask/jquery.inputmask.bundle.js",
-                "~/Scripts/icheck.js",
                 "~/Content/js/plugins/fastclick/fastclick.js",
                 "~/Content/js/adminlte.js",
                 "~/Content/js/init.js"));

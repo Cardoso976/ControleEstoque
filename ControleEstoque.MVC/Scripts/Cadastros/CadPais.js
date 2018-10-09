@@ -7,8 +7,34 @@ var linha;
 function getTabela() {
     var table = $('#TabelaPais').DataTable(
         {
+            dom: "<'row'<'col-sm-2'l><'col-sm-7'B><'col-sm-3'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+            buttons: [
+                {
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF',
+                    extend: 'pdfHtml5',
+                    filename: 'dt_custom_pdf',
+                    
+                    exportOptions: {
+                        columns: [0, 1, 2],
+                        search: 'applied',
+                        order: 'applied',
+                    },
+                    className: 'btn btn-default'
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="fa fa-print"></i>',
+                    titleAttr: 'Imprimir',
+                    className: 'btn btn-default',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                }
+            ],
             ajax: '/Paises/GetPaises',
-            //buttons: ['csv', 'excel', 'pdf', 'print'],
             columns: [
                 { "data": "PaisId" },
                 { "data": "Descricao" },
@@ -22,7 +48,30 @@ function getTabela() {
                         '<a class="btn btn-primary btn-alterar" role="button"><i class="glyphicon glyphicon-pencil"></i> Alterar</a>' +
                         '&nbsp <a class="btn btn-danger btn-excluir" role="button"><i class="glyphicon glyphicon-trash"></i> Excluir</a>'
                 }
-            ]
+            ],
+            "language": {
+                sEmptyTable: "Nenhum registro encontrado",
+                sInfo: "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                sInfoEmpty: "Mostrando 0 até 0 de 0 registros",
+                sInfoFiltered: "(Filtrados de _MAX_ registros)",
+                sInfoPostFix: "",
+                sInfoThousands: ".",
+                sLengthMenu: "_MENU_ resultados por página",
+                sLoadingRecords: "Carregando...",
+                sProcessing: "Processando...",
+                sZeroRecords: "Nenhum registro encontrado",
+                sSearch: "Pesquisar:",
+                oPaginate: {
+                    sNext: "Próximo",
+                    sPrevious: "Anterior",
+                    sFirst: "Primeiro",
+                    sLast: "Último"
+                },
+                oAria: {
+                    sSortAscending: ": Ordenar colunas de forma ascendente",
+                    sSortDescending: ": Ordenar colunas de forma descendente"
+                }
+            }
         });
 
     $("#TabelaPais").on('click', 'a.btn-alterar', function () {
@@ -57,7 +106,7 @@ function getTabela() {
                 if (result.value) {
                     $.post(url, add_anti_forgery_token(param), function (response) {
                         if (response) {
-                            tr.remove();
+                            table.row(tr).remove().draw(false);
                             swal(
                                 'Excluído!',
                                 'Seu dado foi excluído.',
@@ -145,7 +194,7 @@ function set_dados_form(dados) {
     $('#id_cadastro').val(dados.PaisId);
     $('#txt_descricao').val(dados.Descricao);
     $('#txt_codigo').val(dados.Codigo);
-    $('#cbx_ativo').prop('checked', dados.Ativo).iCheck('update');
+    $('#cbx_ativo').prop('checked', dados.Ativo);
 }
 
 function set_focus_form() {
