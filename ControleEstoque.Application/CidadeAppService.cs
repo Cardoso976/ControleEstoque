@@ -1,9 +1,10 @@
-﻿using ControleEstoque.Domain.Entities;
+﻿using ControleEstoque.Application.Interface;
+using ControleEstoque.Domain.Entities;
 using ControleEstoque.Domain.Interfaces.Services;
 
 namespace ControleEstoque.Application
 {
-    public class CidadeAppService : AppServiceBase<Cidade>, ICidadeService
+    public class CidadeAppService : AppServiceBase<Cidade>, ICidadeAppService
     {
         private readonly ICidadeService _cidadeService;
 

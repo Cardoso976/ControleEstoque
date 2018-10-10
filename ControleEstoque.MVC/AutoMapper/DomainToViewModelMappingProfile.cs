@@ -12,6 +12,7 @@ namespace ControleEstoque.MVC.AutoMapper
         {
             Mapper.CreateMap<Pais, PaisViewModel>();
             Mapper.CreateMap<Estado, EstadoViewModel>();
+            Mapper.CreateMap<Cidade, CidadeViewModel>();
         } 
     }
 }

@@ -5,7 +5,7 @@
 var linha;
 
 var simple_checkbox = function (data, type, full, meta) {
-    var is_checked = data == true ? "checked" : "";
+    var is_checked = data == true ? "checked disabled" : "disabled";
     return '<input type="checkbox" class="checkbox" ' +
         is_checked + ' />';
 }

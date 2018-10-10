@@ -11,7 +11,7 @@ var simple_checkbox = function (data, type, full, meta) {
 }
 
 function getTabela() {
-    var table = $('#TabelaPais').DataTable(
+    var table = $('#TabelaCidade').DataTable(
         {
             dom: "<'row'<'col-sm-2'l><'col-sm-7'B><'col-sm-3'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
@@ -22,7 +22,7 @@ function getTabela() {
                     titleAttr: 'PDF',
                     extend: 'pdfHtml5',
                     filename: 'dt_custom_pdf',
-                    
+
                     exportOptions: {
                         columns: [0, 1, 2],
                         search: 'applied',
@@ -40,12 +40,11 @@ function getTabela() {
                     }
                 }
             ],
-            ajax: '/Pais/GetPaises',
+            ajax: '/Cidade/GetCidades',
             columns: [
-                { "data": "PaisId" },
+                { "data": "CidadeId" },
                 { "data": "Descricao" },
-                { "data": "Codigo" },
-                { "data": "Ativo", "render": simple_checkbox},
+                { "data": "Ativo", "render": simple_checkbox },
                 {
                     data: null,
                     className: "center",
@@ -80,10 +79,10 @@ function getTabela() {
             }
         });
 
-    $("#TabelaPais").on('click', 'a.btn-alterar', function () {
+    $("#TabelaCidade").on('click', 'a.btn-alterar', function () {
         var tr = $(this).closest('tr'),
-            id = table.row(tr).data().PaisId,
-            url = '/Pais/Details',
+            id = table.row(tr).data().CidadeId,
+            url = '/Cidade/Details',
             param = { 'id': id };
         $.post(url, add_anti_forgery_token(param), function (f) {
             abrir_form(f.data);
@@ -93,8 +92,8 @@ function getTabela() {
         //Excluir Linha
         .on('click', 'a.btn-excluir', function () {
             var tr = $(this).closest('tr'),
-                id = table.row(tr).data().PaisId,
-                url = '/Pais/Delete',
+                id = table.row(tr).data().CidadeId,
+                url = '/Cidade/Delete',
                 param = { 'id': id };
 
             swal({
@@ -140,12 +139,12 @@ function getTabela() {
     })
         .on('click', '#btn_confirmar', function () {
             var param = get_dados_form(),
-                url = param.PaisId == 0 ? '/Pais/Create' : '/Pais/Edit';
+                url = param.CidadeId == 0 ? '/Cidade/Create' : '/Cidade/Edit';
 
             $.post(url, add_anti_forgery_token(param), function (f) {
                 if (f.Resultado == "OK") {
-                    if (param.PaisId == 0) {
-                        param.PaisId = f.IdSalvo;
+                    if (param.CidadeId == 0) {
+                        param.CidadeId = f.IdSalvo;
                         table.row.add(param).draw(false);
                     } else {
                         linha.data(f.data).invalidate().draw();
@@ -180,26 +179,26 @@ function formatar_mensagem_aviso(mensagens) {
 
 function get_dados_inclusao() {
     return {
-        PaisId: 0,
+        CidadeId: 0,
         Descricao: '',
-        Codigo: '',
+        EstadoId: 0,
         Ativo: true
     };
 }
 
 function get_dados_form() {
     return {
-        PaisId: $('#id_cadastro').val(),
+        CidadeId: $('#id_cadastro').val(),
         Descricao: $('#txt_descricao').val(),
-        Codigo: $('#txt_codigo').val(),
+        EstadoId: $('#ddl_estado').val(),
         Ativo: $('#cbx_ativo').prop('checked')
     };
 }
 
 function set_dados_form(dados) {
-    $('#id_cadastro').val(dados.PaisId);
+    $('#id_cadastro').val(dados.CidadeId);
     $('#txt_descricao').val(dados.Descricao);
-    $('#txt_codigo').val(dados.Codigo);
+    $('#ddl_estado').val(dados.EstadoId);
     $('#cbx_ativo').prop('checked', dados.Ativo);
 }
 
