@@ -217,6 +217,7 @@
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PaisesController.cs" />
@@ -227,6 +228,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\EstadoViewModel.cs" />
     <Compile Include="ViewModels\PaisViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1754,6 +1756,7 @@
     <Content Include="Scripts\Account\Login.js" />
     <Content Include="Scripts\buttons.html5.min.js" />
     <Content Include="Scripts\buttons.print.min.js" />
+    <Content Include="Scripts\Cadastros\CadEstado.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\icheck.js" />
     <Content Include="Scripts\sweetalert2.min.js" />
@@ -1897,6 +1900,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Estado\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
