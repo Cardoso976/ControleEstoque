@@ -10,11 +10,11 @@ using System.Web.Mvc;
 namespace ControleEstoque.MVC.Controllers
 {
     [Authorize]
-    public class PaisesController : Controller
+    public class PaisController : Controller
     {
         private readonly IPaisAppService _paisApp;
 
-        public PaisesController(IPaisAppService paisApp)
+        public PaisController(IPaisAppService paisApp)
         {
             _paisApp = paisApp;
         }

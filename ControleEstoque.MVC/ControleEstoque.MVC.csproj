@@ -220,7 +220,7 @@
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PaisesController.cs" />
+    <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1878,11 +1878,7 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Paises\Create.cshtml" />
-    <Content Include="Views\Paises\Delete.cshtml" />
-    <Content Include="Views\Paises\Details.cshtml" />
-    <Content Include="Views\Paises\Edit.cshtml" />
-    <Content Include="Views\Paises\Index.cshtml" />
+    <Content Include="Views\Pais\Index.cshtml" />
     <Content Include="Views\RolesAdmin\Create.cshtml" />
     <Content Include="Views\RolesAdmin\Delete.cshtml" />
     <Content Include="Views\RolesAdmin\Details.cshtml" />

@@ -4,6 +4,12 @@
 
 var linha;
 
+var simple_checkbox = function (data, type, full, meta) {
+    var is_checked = data == true ? "checked" : "";
+    return '<input type="checkbox" class="checkbox" ' +
+        is_checked + ' />';
+}
+
 function getTabela() {
     var table = $('#TabelaPais').DataTable(
         {
@@ -34,12 +40,12 @@ function getTabela() {
                     }
                 }
             ],
-            ajax: '/Paises/GetPaises',
+            ajax: '/Pais/GetPaises',
             columns: [
                 { "data": "PaisId" },
                 { "data": "Descricao" },
                 { "data": "Codigo" },
-                { "data": "Ativo" },
+                { "data": "Ativo", "render": simple_checkbox},
                 {
                     data: null,
                     className: "center",
@@ -77,7 +83,7 @@ function getTabela() {
     $("#TabelaPais").on('click', 'a.btn-alterar', function () {
         var tr = $(this).closest('tr'),
             id = table.row(tr).data().PaisId,
-            url = '/Paises/Details',
+            url = '/Pais/Details',
             param = { 'id': id };
         $.post(url, add_anti_forgery_token(param), function (f) {
             abrir_form(f.data);
@@ -88,7 +94,7 @@ function getTabela() {
         .on('click', 'a.btn-excluir', function () {
             var tr = $(this).closest('tr'),
                 id = table.row(tr).data().PaisId,
-                url = '/Paises/Delete',
+                url = '/Pais/Delete',
                 param = { 'id': id };
 
             swal({
@@ -134,7 +140,7 @@ function getTabela() {
     })
         .on('click', '#btn_confirmar', function () {
             var param = get_dados_form(),
-                url = param.PaisId == 0 ? '/Paises/Create' : '/Paises/Edit';
+                url = param.PaisId == 0 ? '/Pais/Create' : '/Pais/Edit';
 
             $.post(url, add_anti_forgery_token(param), function (f) {
                 if (f.Resultado == "OK") {

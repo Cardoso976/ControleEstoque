@@ -11,6 +11,7 @@ namespace ControleEstoque.MVC.AutoMapper
         protected override void Configure()
         {
             Mapper.CreateMap<PaisViewModel, Pais>();
+            Mapper.CreateMap<EstadoViewModel, Estado>();
         }
     }
 }

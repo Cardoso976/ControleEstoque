@@ -10,28 +10,32 @@ using ControleEstoque.MVC.ViewModels;
 
 namespace ControleEstoque.MVC.Controllers
 {
+    [Authorize]
     public class EstadoController : Controller
     {
         private readonly IEstadoAppService _estadoApp;
+        private readonly IPaisAppService _paisApp;
 
-        public EstadoController(IEstadoAppService estadoApp)
+        public EstadoController(IEstadoAppService estadoApp, IPaisAppService paisApp)
         {
             _estadoApp = estadoApp;
+            _paisApp = paisApp;
         }
 
         // GET: Estado
         public ActionResult Index()
         {
+            ViewBag.Paises = _paisApp.GetAll();
             return View();
         }
 
-        public JsonResult GetPaises()
+        public JsonResult GetEstados()
         {
-            var paisViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoApp.GetAll());
-            return Json(new { data = paisViewModel }, JsonRequestBehavior.AllowGet);
+            var estadoViewModel = Mapper.Map<IEnumerable<Estado>, IEnumerable<EstadoViewModel>>(_estadoApp.GetAll());
+            return Json(new { data = estadoViewModel }, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Estados/Details/5
+        // GET: Estado/Details/5
         public JsonResult Details(int id)
         {
             var estado = _estadoApp.GetById(id);
@@ -40,7 +44,7 @@ namespace ControleEstoque.MVC.Controllers
             return Json(new { data = estadoViewModel }, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Estados/Create
+        // POST: Estado/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult Create(EstadoViewModel estado)
@@ -72,7 +76,7 @@ namespace ControleEstoque.MVC.Controllers
             return Json(new { Resultado = resultado, Mensagens = mensagens, IdSalvo = idSalvo });
         }
 
-        // POST: Estados/Edit/5
+        // POST: Estado/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult Edit(EstadoViewModel estado)
@@ -104,7 +108,7 @@ namespace ControleEstoque.MVC.Controllers
             return Json(new { Resultado = resultado, Mensagens = mensagens, data = estadoViewModel });
         }
 
-        // POST: Estados/Delete/5
+        // POST: Estado/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public JsonResult DeleteConfirmed(int id)

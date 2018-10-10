@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using ControleEstoque.Domain.Entities;
 
 namespace ControleEstoque.MVC.ViewModels
 {
@@ -25,5 +26,7 @@ namespace ControleEstoque.MVC.ViewModels
 
         [Required(ErrorMessage = "Preencha o campo País")]
         public int PaisId { get; set; }
+
+        public Pais Pais { get; set; }
     }
 }

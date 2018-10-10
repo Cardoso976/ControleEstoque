@@ -4,8 +4,14 @@
 
 var linha;
 
+var simple_checkbox = function (data, type, full, meta) {
+    var is_checked = data == true ? "checked" : "";
+    return '<input type="checkbox" class="checkbox" ' +
+        is_checked + ' />';
+}
+
 function getTabela() {
-    var table = $('#TabelaPais').DataTable(
+    var table = $('#TabelaEstado').DataTable(
         {
             dom: "<'row'<'col-sm-2'l><'col-sm-7'B><'col-sm-3'f>>" +
                 "<'row'<'col-sm-12'tr>>" +
@@ -18,7 +24,7 @@ function getTabela() {
                     filename: 'dt_custom_pdf',
 
                     exportOptions: {
-                        columns: [0, 1, 2],
+                        columns: [1, 2, 3, 4],
                         search: 'applied',
                         order: 'applied',
                     },
@@ -30,16 +36,16 @@ function getTabela() {
                     titleAttr: 'Imprimir',
                     className: 'btn btn-default',
                     exportOptions: {
-                        columns: [0, 1, 2]
+                        columns: [1, 2, 3, 4]
                     }
                 }
             ],
-            ajax: '/Paises/GetPaises',
+            ajax: '/Estado/GetEstados',
             columns: [
                 { "data": "EstadoId" },
                 { "data": "Descricao" },
                 { "data": "Uf" },
-                { "data": "PaisId" },
+                { "data": "Ativo", "render": simple_checkbox},
                 {
                     data: null,
                     className: "center",
@@ -74,10 +80,10 @@ function getTabela() {
             }
         });
 
-    $("#TabelaPais").on('click', 'a.btn-alterar', function () {
+    $("#TabelaEstado").on('click', 'a.btn-alterar', function () {
         var tr = $(this).closest('tr'),
-            id = table.row(tr).data().PaisId,
-            url = '/Estados/Details',
+            id = table.row(tr).data().EstadoId,
+            url = '/Estado/Details',
             param = { 'id': id };
         $.post(url, add_anti_forgery_token(param), function (f) {
             abrir_form(f.data);
@@ -134,7 +140,7 @@ function getTabela() {
     })
         .on('click', '#btn_confirmar', function () {
             var param = get_dados_form(),
-                url = param.EstadoId == 0 ? '/Estados/Create' : '/Estados/Edit';
+                url = param.EstadoId == 0 ? '/Estado/Create' : '/Estado/Edit';
 
             $.post(url, add_anti_forgery_token(param), function (f) {
                 if (f.Resultado == "OK") {
@@ -172,12 +178,24 @@ function formatar_mensagem_aviso(mensagens) {
     return '<ul>' + ret + '</ul>';
 }
 
+function set_dados_form(dados) {
+    $('#id_cadastro').val(dados.EstadoId);
+    $('#txt_descricao').val(dados.Descricao);
+    $('#txt_uf').val(dados.Uf);
+    $('#ddl_pais').val(dados.PaisId);
+    $('#cbx_ativo').prop('checked', dados.Ativo);
+}
+
+function set_focus_form() {
+    $('#txt_descricao').focus();
+}
+
 function get_dados_inclusao() {
     return {
         EstadoId: 0,
         Descricao: '',
         Uf: '',
-        PaisId: '',
+        PaisId: 0,
         Ativo: true
     };
 }
@@ -187,21 +205,9 @@ function get_dados_form() {
         EstadoId: $('#id_cadastro').val(),
         Descricao: $('#txt_descricao').val(),
         Uf: $('#txt_uf').val(),
-        Ativo: $('#cbx_ativo').prop('checked'),
-        PaisId: $('#txt_pais').val()
+        PaisId: $('#ddl_pais').val(),
+        Ativo: $('#cbx_ativo').prop('checked')
     };
-}
-
-function set_dados_form(dados) {
-    $('#id_cadastro').val(dados.PaisId);
-    $('#txt_descricao').val(dados.Descricao);
-    $('#txt_uf').val(dados.Codigo);
-    $('#cbx_ativo').prop('checked', dados.Ativo);
-    $('#txt_pais').val(dados.PaisId);
-}
-
-function set_focus_form() {
-    $('#txt_descricao').focus();
 }
 
 function abrir_form(dados) {
@@ -215,7 +221,7 @@ function abrir_form(dados) {
     $('#msg_erro').hide();
 
     bootbox.dialog({
-        title: 'Cadastro de País',
+        title: 'Cadastro de Estado',
         message: modal_cadastro,
         className: 'dialogo'
     })
