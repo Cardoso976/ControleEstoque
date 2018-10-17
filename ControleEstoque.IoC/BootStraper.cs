@@ -33,6 +33,25 @@ namespace ControleEstoque.IoC
             container.RegisterPerWebRequest<ICidadeService, CidadeService>();
             container.RegisterPerWebRequest<ICidadeRepository, CidadeRepository>();
 
+            container.RegisterPerWebRequest<IGrupoProdutoAppService, GrupoProdutoAppService>();
+            container.RegisterPerWebRequest<IGrupoProdutoService, GrupoProdutoService>();
+            container.RegisterPerWebRequest<IGrupoProdutoRepository, GrupoProdutoRepository>();
+
+            container.RegisterPerWebRequest<IUnidadeMedidaAppService, UnidadeMedidaAppService>();
+            container.RegisterPerWebRequest<IUnidadeMedidaService, UnidadeMedidaService>();
+            container.RegisterPerWebRequest<IUnidadeMedidaRepository, UnidadeMedidaRepository>();
+
+            container.RegisterPerWebRequest<IMarcaProdutoAppService, MarcaProdutoAppService>();
+            container.RegisterPerWebRequest<IMarcaProdutoService, MarcaProdutoService>();
+            container.RegisterPerWebRequest<IMarcaProdutoRepository, MarcaProdutoRepository>();
+
+            container.RegisterPerWebRequest<ILocalArmazenamentoAppService, LocalArmazenamentoAppService>();
+            container.RegisterPerWebRequest<ILocalArmazenamentoService, LocalArmazenamentoService>();
+            container.RegisterPerWebRequest<ILocalArmazenamentoRepository, LocalArmazenamentoRepository>();
+
+            container.RegisterPerWebRequest<IFornecedorAppService, FornecedorAppService>();
+            container.RegisterPerWebRequest<IFornecedorService, FornecedorService>();
+            container.RegisterPerWebRequest<IFornecedorRepository, FornecedorRepository>();
 
             //Identity IoC
             container.RegisterPerWebRequest<ApplicationDbContext>();

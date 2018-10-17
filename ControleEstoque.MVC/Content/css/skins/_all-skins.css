@@ -319,11 +319,11 @@
   color: #333;
   border-right: 1px solid #eee;
 }
-.skin-black .main-header .navbar {
-  background-color: #ffffff;
-}
+    .skin-black .main-header .navbar {
+        background-color: #222d32;
+    }
 .skin-black .main-header .navbar .nav > li > a {
-  color: #333333;
+  color: #ffffff;
 }
 .skin-black .main-header .navbar .nav > li > a:hover,
 .skin-black .main-header .navbar .nav > li > a:active,
@@ -332,7 +332,7 @@
 .skin-black .main-header .navbar .nav .open > a:hover,
 .skin-black .main-header .navbar .nav .open > a:focus,
 .skin-black .main-header .navbar .nav > .active > a {
-  background: #ffffff;
+  background: #222d32;
   color: #999999;
 }
 .skin-black .main-header .navbar .sidebar-toggle {
@@ -340,28 +340,24 @@
 }
 .skin-black .main-header .navbar .sidebar-toggle:hover {
   color: #999999;
-  background: #ffffff;
 }
 .skin-black .main-header .navbar > .sidebar-toggle {
-  color: #333;
-  border-right: 1px solid #eee;
+  color: #ffffff;
 }
 .skin-black .main-header .navbar .navbar-nav > li > a {
   border-right: 1px solid #eee;
 }
 .skin-black .main-header .navbar .navbar-custom-menu .navbar-nav > li > a,
 .skin-black .main-header .navbar .navbar-right > li > a {
-  border-left: 1px solid #eee;
   border-right-width: 0;
 }
 .skin-black .main-header > .logo {
-  background-color: #ffffff;
-  color: #333333;
+  background-color: #222d32;
+  color: #eee;
   border-bottom: 0 solid transparent;
-  border-right: 1px solid #eee;
 }
 .skin-black .main-header > .logo:hover {
-  background-color: #fcfcfc;
+  background-color: #222d32;
 }
 @media (max-width: 767px) {
   .skin-black .main-header > .logo {
@@ -495,17 +491,17 @@
   background: #ffffff;
   color: #999999;
 }
-.skin-black-light .main-header .navbar .sidebar-toggle {
-  color: #333333;
-}
+
+    .skin-black-light .main-header .navbar .sidebar-toggle {
+        color: #222d32;
+    }
 .skin-black-light .main-header .navbar .sidebar-toggle:hover {
   color: #999999;
   background: #ffffff;
 }
-.skin-black-light .main-header .navbar > .sidebar-toggle {
-  color: #333;
-  border-right: 1px solid #d2d6de;
-}
+    .skin-black-light .main-header .navbar > .sidebar-toggle {
+        color: #333;
+    }
 .skin-black-light .main-header .navbar .navbar-nav > li > a {
   border-right: 1px solid #d2d6de;
 }

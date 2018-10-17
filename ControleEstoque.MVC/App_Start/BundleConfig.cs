@@ -33,7 +33,7 @@ namespace ControleEstoque.MVC
                     "~/Content/css/bootstrap-datepicker3.min.css",
                     "~/Content/css/font-awesome.min.css",
                     "~/Content/Site.css")
-                .Include("~/Content/css/skins/skin-blue.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/css/skins/_all-skins.css", new CssRewriteUrlTransformAbsolute())
                 .Include("~/Content/css/AdminLTE.css", new CssRewriteUrlTransformAbsolute()));
 
             //DataTables
