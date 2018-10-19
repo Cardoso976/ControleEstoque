@@ -15,7 +15,17 @@ namespace ControleEstoque.Domain.Entities
         public string  Contato { get; set; }
         public DateTime DataCadastro { get; set; }
         public int EnderecoId { get; set; }
-        public virtual Endereco Endereco { get; set; }
+        public string Logradouro { get; set; }
+        public string Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Cep { get; set; }
+        public Pais Pais { get; set; }
+        public int PaisId { get; set; }
+        public Estado Estado { get; set; }
+        public int EstadoId { get; set; }
+        public Cidade Cidade { get; set; }
+        public int CidadeId { get; set; }
+        public bool Ativo { get; set; }
         public IEnumerable<Produto> Produtos { get; set; }
     }
 }

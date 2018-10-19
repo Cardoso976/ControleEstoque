@@ -9,7 +9,8 @@ namespace ControleEstoque.MVC
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                       "~/Scripts/jquery-{version}.js"));
+                       "~/Scripts/jquery-{version}.js",
+                       "~/Scripts/jquery.mask.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -30,6 +31,7 @@ namespace ControleEstoque.MVC
                     "~/Content/bootstrap.min.css",
                     "~/Content/Buttons-1.5.2/css/buttons.bootstrap.min.css",
                     "~/Content/css/bootstrap-select.css",
+                    "~/Content/css/icheck/blue.css",
                     "~/Content/css/bootstrap-datepicker3.min.css",
                     "~/Content/css/font-awesome.min.css",
                     "~/Content/Site.css")
@@ -59,6 +61,7 @@ namespace ControleEstoque.MVC
                 "~/Content/js/plugins/datepicker/bootstrap-datepicker.js",
                 "~/Content/js/plugins/slimscroll/jquery.slimscroll.js",
                 "~/Content/js/plugins/validator.js",
+                "~/Content/js/icheck/icheck.min.js",
                 "~/Content/js/plugins/inputmask/jquery.inputmask.bundle.js",
                 "~/Content/js/plugins/fastclick/fastclick.js",
                 "~/Content/js/adminlte.js",

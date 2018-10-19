@@ -220,6 +220,7 @@
     <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
+    <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\GrupoProdutoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalArmazenamentoController.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CidadeViewModel.cs" />
     <Compile Include="ViewModels\EstadoViewModel.cs" />
+    <Compile Include="ViewModels\FornecedorViewModel.cs" />
     <Compile Include="ViewModels\GrupoProdutoViewModel.cs" />
     <Compile Include="ViewModels\LocalArmazenamentoViewModel.cs" />
     <Compile Include="ViewModels\MarcaProdutoViewModel.cs" />
@@ -1774,8 +1776,10 @@
     <Content Include="Scripts\Cadastros\CadLocalArmazenamento.js" />
     <Content Include="Scripts\Cadastros\CadMarcaProduto.js" />
     <Content Include="Scripts\Cadastros\CadUnidadeMedida.js" />
+    <Content Include="Scripts\Cadastros\CadFornecedor.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\icheck.js" />
+    <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\sweetalert2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1919,6 +1923,7 @@
     <Content Include="Views\UnidadeMedida\Index.cshtml" />
     <Content Include="Views\MarcaProduto\Index.cshtml" />
     <Content Include="Views\LocalArmazenamento\Index.cshtml" />
+    <Content Include="Views\Fornecedor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

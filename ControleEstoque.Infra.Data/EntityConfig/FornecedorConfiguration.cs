@@ -31,9 +31,45 @@ namespace ControleEstoque.Infra.Data.EntityConfig
                 .IsRequired()
                 .HasMaxLength(150);
 
-            HasRequired(f => f.Endereco)
+            Property(x => x.Logradouro)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            Property(x => x.Numero)
+                .HasMaxLength(20)
+                .IsRequired();
+
+            Property(x => x.Complemento)
+                .HasMaxLength(100)
+                .IsOptional();
+
+            Property(x => x.Cep)
+                .HasMaxLength(10)
+                .IsOptional();
+
+            Property(x => x.Ativo)
+                .IsRequired();
+
+            Property(x => x.PaisId)
+                .IsRequired();
+            HasRequired(x => x.Pais)
                 .WithMany()
-                .HasForeignKey(f => f.EnderecoId);
+                .HasForeignKey(x => x.PaisId)
+                .WillCascadeOnDelete(false);
+
+            Property(x => x.EstadoId)
+                .IsRequired();
+            HasRequired(x => x.Estado)
+                .WithMany()
+                .HasForeignKey(x => x.EstadoId)
+                .WillCascadeOnDelete(false);
+
+            Property(x => x.CidadeId)
+                .IsRequired();
+            HasRequired(x => x.Cidade)
+                .WithMany()
+                .HasForeignKey(x => x.CidadeId)
+                .WillCascadeOnDelete(false);
 
         }
     }

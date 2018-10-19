@@ -18,6 +18,8 @@ namespace ControleEstoque.MVC.AutoMapper
             Mapper.CreateMap<UnidadeMedidaViewModel, UnidadeMedida>();
             Mapper.CreateMap<MarcaProdutoViewModel, MarcaProduto>();
             Mapper.CreateMap<LocalArmazenamentoViewModel, LocalArmazenamento>();
+
+            Mapper.CreateMap<FornecedorViewModel, Fornecedor>();
         }
     }
 }

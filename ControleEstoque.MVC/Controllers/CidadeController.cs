@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using ControleEstoque.Application.Interface;
@@ -32,6 +31,15 @@ namespace ControleEstoque.MVC.Controllers
         {
             var cidadeViewModel = Mapper.Map<IEnumerable<Cidade>, IEnumerable<CidadeViewModel>>(_cidadeApp.GetAll());
             return Json(new {data = cidadeViewModel}, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult GetCidadesByEstado(int estadoId)
+        {
+            var cidadeViewModel =
+                Mapper.Map<IEnumerable<Cidade>, IEnumerable<EstadoViewModel>>(_cidadeApp.GetCidadesByEstado(estadoId));
+            return Json(new { data = cidadeViewModel }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Paises/Details/5

@@ -9,43 +9,44 @@ using ControleEstoque.MVC.ViewModels;
 
 namespace ControleEstoque.MVC.Controllers
 {
-    public class UnidadeMedidaController : Controller
+    [Authorize]
+    public class FornecedorController : Controller
     {
-        private readonly IUnidadeMedidaAppService _unidadeMedidaApp;
+        private readonly IFornecedorAppService _fornecedorApp;
+        private readonly IPaisAppService _paisApp;
 
-        public UnidadeMedidaController(IUnidadeMedidaAppService unidadeMedidaApp)
+        public FornecedorController(IFornecedorAppService fornecedorApp, IPaisAppService paisApp, IEstadoAppService estadoApp, ICidadeAppService cidadeApp)
         {
-            _unidadeMedidaApp = unidadeMedidaApp;
+            _fornecedorApp = fornecedorApp;
+            _paisApp = paisApp;
         }
 
-        // GET: UnidadeMedida
+        // GET: Fornecedor
         public ActionResult Index()
         {
+            ViewBag.Paises = _paisApp.GetAll();
             return View();
         }
 
-        // GET: UnidadeMedida/GetUnidadesMedida
-        public JsonResult GetUnidadesMedidas()
+        public JsonResult GetFornecedores()
         {
-            var unidadeMedidaViewModel = Mapper.Map<IEnumerable<UnidadeMedida>, IEnumerable<UnidadeMedidaViewModel>>(_unidadeMedidaApp.GetAll());
-            return Json(new { data = unidadeMedidaViewModel }, JsonRequestBehavior.AllowGet);
+            var fornecedorViewModel = Mapper.Map<IEnumerable<Fornecedor>, IEnumerable<FornecedorViewModel>>(_fornecedorApp.GetAll());
+            return Json(new { data = fornecedorViewModel }, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: UnidadeMedida/Details/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // GET: Fornecedor/Details/5
         public JsonResult Details(int id)
         {
-            var unidadeMedida = _unidadeMedidaApp.GetById(id);
-            var unidadeMedidaViewModel = Mapper.Map<UnidadeMedida, UnidadeMedidaViewModel>(unidadeMedida);
+            var fornecedor = _fornecedorApp.GetById(id);
+            var fornecedorViewModel = Mapper.Map<Fornecedor, FornecedorViewModel>(fornecedor);
 
-            return Json(new { data = unidadeMedidaViewModel }, JsonRequestBehavior.AllowGet);
+            return Json(new { data = fornecedorViewModel }, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: UnidadeMedida/Create
+        // POST: Fornecedor/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult Create(UnidadeMedidaViewModel unidadeMedida)
+        public JsonResult Create(FornecedorViewModel fornecedor)
         {
             var resultado = "OK";
             var mensagens = new List<string>();
@@ -60,9 +61,9 @@ namespace ControleEstoque.MVC.Controllers
             {
                 try
                 {
-                    var unidadeMedidaDomain = Mapper.Map<UnidadeMedidaViewModel, UnidadeMedida>(unidadeMedida);
-                    _unidadeMedidaApp.Add(unidadeMedidaDomain);
-                    idSalvo = unidadeMedidaDomain.UnidadeMedidaId.ToString();
+                    var fornecedorDomain = Mapper.Map<FornecedorViewModel, Fornecedor>(fornecedor);
+                    _fornecedorApp.Add(fornecedorDomain);
+                    idSalvo = fornecedorDomain.FornecedorId.ToString();
                 }
                 catch (Exception ex)
                 {
@@ -74,14 +75,14 @@ namespace ControleEstoque.MVC.Controllers
             return Json(new { Resultado = resultado, Mensagens = mensagens, IdSalvo = idSalvo });
         }
 
-        // POST: UnidadeMedida/Edit/5
+        // POST: Fornecedor/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult Edit(UnidadeMedidaViewModel unidadeMedida)
+        public JsonResult Edit(FornecedorViewModel fornecedor)
         {
             var resultado = "OK";
             var mensagens = new List<string>();
-            var unidadeMedidaViewModel = unidadeMedida;
+            var fornecedorViewModel = fornecedor;
 
             if (!ModelState.IsValid)
             {
@@ -92,9 +93,9 @@ namespace ControleEstoque.MVC.Controllers
             {
                 try
                 {
-                    var unidadeMedidaDomain = Mapper.Map<UnidadeMedidaViewModel, UnidadeMedida>(unidadeMedida);
-                    _unidadeMedidaApp.Update(unidadeMedidaDomain);
-                    unidadeMedidaViewModel = Mapper.Map<UnidadeMedida, UnidadeMedidaViewModel>(unidadeMedidaDomain);
+                    var fornecedorDomain = Mapper.Map<FornecedorViewModel, Fornecedor>(fornecedor);
+                    _fornecedorApp.Update(fornecedorDomain);
+                    fornecedorViewModel = Mapper.Map<Fornecedor, FornecedorViewModel>(fornecedorDomain);
                 }
                 catch (Exception ex)
                 {
@@ -103,10 +104,10 @@ namespace ControleEstoque.MVC.Controllers
 
             }
 
-            return Json(new { Resultado = resultado, Mensagens = mensagens, data = unidadeMedidaViewModel });
+            return Json(new { Resultado = resultado, Mensagens = mensagens, data = fornecedorViewModel });
         }
 
-        // POST: UnidadeMedida/Delete/5
+        // POST: Fornecedor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public JsonResult DeleteConfirmed(int id)
@@ -114,8 +115,8 @@ namespace ControleEstoque.MVC.Controllers
             var resultado = true;
             try
             {
-                var pais = _unidadeMedidaApp.GetById(id);
-                _unidadeMedidaApp.Remove(pais);
+                var fornecedor = _fornecedorApp.GetById(id);
+                _fornecedorApp.Remove(fornecedor);
             }
             catch (Exception ex)
             {
