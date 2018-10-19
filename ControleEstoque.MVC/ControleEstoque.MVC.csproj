@@ -1764,6 +1764,7 @@
     <Content Include="Content\pdfmake-0.1.36\pdfmake.js" />
     <Content Include="Content\pdfmake-0.1.36\pdfmake.min.js" />
     <Content Include="Content\pdfmake-0.1.36\vfs_fonts.js" />
+    <Content Include="Scripts\Account\AccountMenu.js" />
     <Content Include="Scripts\Account\Login.js" />
     <Content Include="Scripts\buttons.html5.min.js" />
     <Content Include="Scripts\buttons.print.min.js" />
