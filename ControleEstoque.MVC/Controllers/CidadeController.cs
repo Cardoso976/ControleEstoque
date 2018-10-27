@@ -38,7 +38,7 @@ namespace ControleEstoque.MVC.Controllers
         public JsonResult GetCidadesByEstado(int estadoId)
         {
             var cidadeViewModel =
-                Mapper.Map<IEnumerable<Cidade>, IEnumerable<EstadoViewModel>>(_cidadeApp.GetCidadesByEstado(estadoId));
+                Mapper.Map<IEnumerable<Cidade>, IEnumerable<CidadeViewModel>>(_cidadeApp.GetCidadesByEstado(estadoId));
             return Json(new { data = cidadeViewModel }, JsonRequestBehavior.AllowGet);
         }
 

@@ -217,7 +217,7 @@ function abrir_form(dados) {
     $('#msg_erro').hide();
 
     bootbox.dialog({
-        title: 'Cadastro de País',
+        title: 'Cadastro de Cidade',
         message: modal_cadastro,
         className: 'dialogo'
     })

@@ -19,7 +19,7 @@ namespace ControleEstoque.MVC.AutoMapper
             Mapper.CreateMap<MarcaProduto, MarcaProdutoViewModel>();
             Mapper.CreateMap<LocalArmazenamento, LocalArmazenamentoViewModel>();
 
-            Mapper.CreateMap<Fornecedor, Fornecedor>();
+            Mapper.CreateMap<Fornecedor, FornecedorViewModel>();
         } 
     }
 }

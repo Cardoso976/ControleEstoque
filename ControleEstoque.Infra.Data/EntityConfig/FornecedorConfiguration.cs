@@ -18,14 +18,14 @@ namespace ControleEstoque.Infra.Data.EntityConfig
 
             Property(f => f.NumDocumento)
                 .IsRequired()
-                .HasMaxLength(14);
+                .HasMaxLength(20);
 
             Property(f => f.Tipo)
                 .IsRequired();
 
             Property(f => f.Telefone)
                 .IsRequired()
-                .HasMaxLength(12);
+                .HasMaxLength(20);
 
             Property(f => f.Contato)
                 .IsRequired()

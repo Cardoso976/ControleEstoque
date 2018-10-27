@@ -200,7 +200,7 @@ function formatar_mensagem_aviso(mensagens) {
 
 function get_dados_inclusao() {
     return {
-        Id: 0,
+        FornecedorId: 0,
         Nome: '',
         NumDocumento: '',
         RazaoSocial: '',
@@ -208,18 +208,19 @@ function get_dados_inclusao() {
         Telefone: '',
         Contato: '',
         Logradouro: '',
+        Numero: 0,
         Complemento: '',
         Cep: '',
-        IdPais: 0,
-        IdEstado: 0,
-        IdCidade: 0,
+        PaisId: 0,
+        EstadoId: 0,
+        CidadeId: 0,
         Ativo: true
     };
 }
 
 function get_dados_form() {
     return {
-        Id: $('#id_cadastro').val(),
+        FornecedorId: $('#id_cadastro').val(),
         Nome: $('#txt_nome').val(),
         NumDocumento: $('#txt_num_documento').val(),
         RazaoSocial: $('#txt_razao_social').val(),
@@ -228,16 +229,17 @@ function get_dados_form() {
         Contato: $('#txt_contato').val(),
         Logradouro: $('#txt_logradouro').val(),
         Complemento: $('#txt_complemento').val(),
+        Numero: $("#txt_numero").val(),
         Cep: $('#txt_cep').val(),
-        IdPais: $('#ddl_pais').val(),
-        IdEstado: $('#ddl_estado').val(),
-        IdCidade: $('#ddl_cidade').val(),
+        PaisId: $('#ddl_pais').val(),
+        EstadoId: $('#ddl_estado').val(),
+        CidadeId: $('#ddl_cidade').val(),
         Ativo: $('#cbx_ativo').prop('checked')
     };
 }
 
 function set_dados_form(dados) {
-    $('#id_cadastro').val(dados.Id);
+    $('#id_cadastro').val(dados.FornecedorId);
     $('#txt_nome').val(dados.Nome);
     $('#txt_num_documento').val(dados.NumDocumento);
     $('#txt_razao_social').val(dados.RazaoSocial);
@@ -245,6 +247,7 @@ function set_dados_form(dados) {
     $('#txt_contato').val(dados.Contato);
     $('#txt_logradouro').val(dados.Logradouro);
     $('#txt_complemento').val(dados.Complemento);
+    $("#txt_numero").val(dados.Numero);
     $('#txt_cep').val(dados.Cep);
     $('#cbx_ativo').prop('checked', dados.Ativo);
     $('#cbx_pessoa_juridica').prop('checked', false);
@@ -257,7 +260,7 @@ function set_dados_form(dados) {
         $('#cbx_pessoa_fisica').prop('checked', true).trigger('click');
     }
 
-    var inclusao = (dados.Id == 0);
+    var inclusao = (dados.FornecedorId == 0);
     if (inclusao) {
         $('#ddl_estado').empty();
         $('#ddl_estado').prop('disabled', true);
@@ -266,8 +269,8 @@ function set_dados_form(dados) {
         $('#ddl_cidade').prop('disabled', true);
     }
     else {
-        $('#ddl_pais').val(dados.IdPais);
-        mudar_pais(dados.IdEstado, dados.IdCidade);
+        $('#ddl_pais').val(dados.PaisId);
+        mudar_pais(dados.EstadoId, dados.CidadeId);
     }
 }
 
@@ -288,9 +291,9 @@ function mudar_pais(id_estado, id_cidade) {
         ddl_cidade.prop('disabled', true);
 
         $.post(url, add_anti_forgery_token(param), function (response) {
-            if (response && response.length > 0) {
-                for (var i = 0; i < response.length; i++) {
-                    ddl_estado.append('<option value=' + response[i].EstadoId + '>' + response[i].Descricao + '</option>');
+            if (response.data && response.data.length > 0) {
+                for (var i = 0; i < response.data.length; i++) {
+                    ddl_estado.append('<option value=' + response.data[i].EstadoId + '>' + response.data[i].Descricao + '</option>');
                 }
                 ddl_estado.prop('disabled', false);
             }
@@ -313,9 +316,9 @@ function mudar_estado(id_cidade) {
         ddl_cidade.prop('disabled', true);
 
         $.post(url, add_anti_forgery_token(param), function (response) {
-            if (response && response.length > 0) {
-                for (var i = 0; i < response.length; i++) {
-                    ddl_cidade.append('<option value=' + response[i].CidadeId + '>' + response[i].Descricao + '</option>');
+            if (response.data && response.data.length > 0) {
+                for (var i = 0; i < response.data.length; i++) {
+                    ddl_cidade.append('<option value=' + response.data[i].CidadeId + '>' + response.data[i].Descricao + '</option>');
                 }
                 ddl_cidade.prop('disabled', false);
             }
@@ -351,7 +354,7 @@ function abrir_form(dados) {
     bootbox.dialog({
         title: 'Cadastro de País',
         message: modal_cadastro,
-        className: 'dialogo'
+        className: 'fornecedor'
     })
         .on('shown.bs.modal', function () {
             modal_cadastro.show(0, function () {

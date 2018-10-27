@@ -15,6 +15,7 @@ namespace ControleEstoque.MVC.ViewModels
         [MaxLength(100, ErrorMessage = "A razão social pode ter no máximo 100 caracteres.")]
         public string RazaoSocial { get; set; }
 
+        [Required(ErrorMessage = "Preencha o numero do documento.")]
         [MaxLength(20, ErrorMessage = "O número do documento pode ter no máximo 20 caracteres.")]
         public string NumDocumento { get; set; }
 

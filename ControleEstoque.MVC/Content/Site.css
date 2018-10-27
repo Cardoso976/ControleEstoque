@@ -12,3 +12,7 @@
 .cbx label {
     margin-bottom: 0px;
 }
+
+.fornecedor > .modal-dialog {
+    width: 55% !important;
+}
