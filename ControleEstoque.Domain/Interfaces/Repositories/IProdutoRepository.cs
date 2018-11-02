@@ -5,6 +5,6 @@ namespace ControleEstoque.Domain.Interfaces.Repositories
 {
     public interface IProdutoRepository : IRepositoryBase<Produto>
     {
-        IEnumerable<Produto> BuscarPorDescricao(string descricao);
+        string RecuperarImagemPeloId(int id);
     }
 }

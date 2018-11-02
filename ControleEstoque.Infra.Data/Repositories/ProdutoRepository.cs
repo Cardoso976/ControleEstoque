@@ -7,9 +7,9 @@ namespace ControleEstoque.Infra.Data.Repositories
 {
     public class ProdutoRepository : RepositoryBase<Produto>, IProdutoRepository
     {
-        public IEnumerable<Produto> BuscarPorDescricao(string descricao)
+        public string RecuperarImagemPeloId(int id)
         {
-            return Db.Produtos.Where(p => p.Descricao == descricao);
+            return Db.Produtos.Where(p => p.ProdutoId == id).Select(x => x.Imagem).SingleOrDefault();
         }
     }
 }

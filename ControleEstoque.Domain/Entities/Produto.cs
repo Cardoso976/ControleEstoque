@@ -19,8 +19,9 @@ namespace ControleEstoque.Domain.Entities
         public int FornecedorId { get; set; }
         public virtual Fornecedor Fornecedor { get; set; }
         public int LocalArmazenamentoId { get; set; }
-        public virtual  LocalArmazenamento LocalArmazenamento { get; set; }
+        public virtual LocalArmazenamento LocalArmazenamento { get; set; }
         public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
+        public string Imagem { get; set; }
     }
 }

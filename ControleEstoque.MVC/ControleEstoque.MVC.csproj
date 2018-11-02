@@ -227,6 +227,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarcaProdutoController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UnidadeMedidaController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="ViewModels\LocalArmazenamentoViewModel.cs" />
     <Compile Include="ViewModels\MarcaProdutoViewModel.cs" />
     <Compile Include="ViewModels\PaisViewModel.cs" />
+    <Compile Include="ViewModels\ProdutoViewModel.cs" />
     <Compile Include="ViewModels\UnidadeMedidaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1680,6 +1682,7 @@
     <Content Include="Content\css\skins\skin-yellow.min.css" />
     <Content Include="Content\css\skins\_all-skins.css" />
     <Content Include="Content\css\skins\_all-skins.min.css" />
+    <Content Include="Content\Imagens\f83ee548-5219-4a8f-9a55-3fa83816f052.jpg" />
     <Content Include="Content\sweetalert2.min.css" />
     <Content Include="Content\DataTables-1.10.18\css\dataTables.bootstrap.css" />
     <Content Include="Content\DataTables-1.10.18\css\dataTables.bootstrap.min.css" />
@@ -1775,6 +1778,7 @@
     <Content Include="Scripts\Cadastros\CadGrupoProduto.js" />
     <Content Include="Scripts\Cadastros\CadLocalArmazenamento.js" />
     <Content Include="Scripts\Cadastros\CadMarcaProduto.js" />
+    <Content Include="Scripts\Cadastros\CadProduto.js" />
     <Content Include="Scripts\Cadastros\CadUnidadeMedida.js" />
     <Content Include="Scripts\Cadastros\CadFornecedor.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
@@ -1924,6 +1928,7 @@
     <Content Include="Views\MarcaProduto\Index.cshtml" />
     <Content Include="Views\LocalArmazenamento\Index.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

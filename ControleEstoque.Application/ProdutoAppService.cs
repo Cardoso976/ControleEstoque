@@ -1,4 +1,6 @@
-﻿using ControleEstoque.Application.Interface;
+﻿using System.IO;
+using System.Web;
+using ControleEstoque.Application.Interface;
 using ControleEstoque.Domain.Entities;
 using ControleEstoque.Domain.Interfaces.Services;
 
@@ -12,6 +14,11 @@ namespace ControleEstoque.Application
             : base(produtoService)
         {
             _produtoService = produtoService;
+        }
+
+        public string RecuperarImagemPeloId(int id)
+        {
+            return _produtoService.RecuperarImagemPeloId(id);
         }
     }
 }

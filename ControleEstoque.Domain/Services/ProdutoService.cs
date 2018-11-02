@@ -13,5 +13,10 @@ namespace ControleEstoque.Domain.Services
         {
             _paisRepository = produtoRepository;
         }
+
+        public string RecuperarImagemPeloId(int id)
+        {
+            return _paisRepository.RecuperarImagemPeloId(id);
+        }
     }
 }

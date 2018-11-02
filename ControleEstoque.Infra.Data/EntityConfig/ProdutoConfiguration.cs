@@ -51,6 +51,10 @@ namespace ControleEstoque.Infra.Data.EntityConfig
             HasRequired(p => p.LocalArmazenamento)
                 .WithMany()
                 .HasForeignKey(p => p.LocalArmazenamentoId);
+
+            Property(p => p.Imagem)
+                .IsRequired()
+                .HasMaxLength(100);
         }
     }
 }
