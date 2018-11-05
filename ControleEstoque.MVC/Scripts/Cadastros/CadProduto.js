@@ -45,7 +45,7 @@ function getTabela() {
             ],
             ajax: '/Produto/GetProdutos',
             columns: [
-                { "data": "ProdutoId" },
+                { "data": "ProdutoId", "visible": false },
                 { "data": "Codigo" },
                 { "data": "Descricao", className: "descricao_produto" },
                 { "data": "PrecoCusto" },
