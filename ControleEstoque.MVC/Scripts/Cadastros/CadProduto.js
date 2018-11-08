@@ -1,5 +1,4 @@
-﻿
-$(document).ready(function () {
+﻿$(document).ready(function () {
     getTabela();
     $('#txt_preco_custo,#txt_preco_venda').mask('#.##0,00', { reverse: true });
     $('#txt_quant_estoque').mask('00000');
@@ -235,7 +234,7 @@ function set_dados_form(dados) {
     $('#txt_descricao').val(dados.Descricao);
     $('#txt_preco_custo').val(dados.PrecoCusto);
     $('#txt_preco_venda').val(dados.PrecoVenda);
-    $('#txt_quant_estoque').val(dados.QuantEstoque);
+    $('#txt_quant_estoque').val(dados.QuantidadeEstoque);
     $('#ddl_unidade_medida').val(dados.UnidadeMedidaId);
     $('#ddl_grupo').val(dados.GrupoProdutoId);
     $('#ddl_marca').val(dados.MarcaId);
@@ -302,6 +301,7 @@ function get_param() {
 }
 
 function abrir_form(dados) {
+    debugger;
     set_dados_form(dados);
 
     var modal_cadastro = $('#modal_cadastro');

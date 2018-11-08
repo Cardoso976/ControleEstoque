@@ -83,7 +83,7 @@ namespace ControleEstoque.MVC.Controllers
             if (Request.Files.Count > 0)
             {
                 arquivo = Request.Files[0];
-                nomeArquivoImagem = Guid.NewGuid().ToString() + ".jpg";
+                nomeArquivoImagem = Guid.NewGuid() + ".jpg";
             }
 
             var produto = new ProdutoViewModel()
@@ -133,11 +133,35 @@ namespace ControleEstoque.MVC.Controllers
         // POST: Produto/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult Edit(ProdutoViewModel produto)
+        public JsonResult Edit()
         {
             var resultado = "OK";
             var mensagens = new List<string>();
-            var produtoViewModel = produto;
+
+            var nomeArquivoImagem = "";
+            HttpPostedFileBase arquivo = null;
+            if (Request.Files.Count > 0)
+            {
+                arquivo = Request.Files[0];
+                nomeArquivoImagem = Guid.NewGuid() + ".jpg";
+            }
+
+            var produtoViewModel = new ProdutoViewModel()
+            {
+                ProdutoId = Int32.Parse(Request.Form["ProdutoId"]),
+                Codigo = Request.Form["Codigo"],
+                Descricao = Request.Form["Descricao"],
+                PrecoCusto = Decimal.Parse(Request.Form["PrecoCusto"]),
+                PrecoVenda = Decimal.Parse(Request.Form["PrecoVenda"]),
+                QuantidadeEstoque = Int32.Parse(Request.Form["QuantidadeEstoque"]),
+                UnidadeMedidaId = Int32.Parse(Request.Form["UnidadeMedidaId"]),
+                GrupoProdutoId = Int32.Parse(Request.Form["GrupoProdutoId"]),
+                MarcaId = Int32.Parse(Request.Form["MarcaId"]),
+                FornecedorId = Int32.Parse(Request.Form["FornecedorId"]),
+                LocalArmazenamentoId = Int32.Parse(Request.Form["LocalArmazenamentoId"]),
+                Ativo = Request.Form["Ativo"] == "true",
+                Imagem = nomeArquivoImagem
+            };
 
             if (!ModelState.IsValid)
             {
@@ -148,7 +172,23 @@ namespace ControleEstoque.MVC.Controllers
             {
                 try
                 {
-                    var produtoDomain = Mapper.Map<ProdutoViewModel, Produto>(produto);
+                    var nomeArquivoImagemAnterior = "";
+                    nomeArquivoImagemAnterior = GetImagemPeloId(produtoViewModel.ProdutoId)?.ToString();
+
+                    var diretorio = Server.MapPath("~/Content/Imagens");
+
+                    if (!string.IsNullOrEmpty(nomeArquivoImagem) && arquivo != null)
+                    {
+                        SalvarImagem(arquivo, nomeArquivoImagem);
+
+                        if (!string.IsNullOrEmpty(nomeArquivoImagemAnterior))
+                        {
+                            var caminhoArquivoAnterior = Path.Combine(diretorio, nomeArquivoImagemAnterior);
+                            System.IO.File.Delete(caminhoArquivoAnterior);
+                        }
+                    }
+
+                    var produtoDomain = Mapper.Map<ProdutoViewModel, Produto>(produtoViewModel);
                     _produtoApp.Update(produtoDomain);
                     produtoViewModel = Mapper.Map<Produto, ProdutoViewModel>(produtoDomain);
                 }
