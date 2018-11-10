@@ -9,20 +9,15 @@ namespace ControleEstoque.MVC
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                       "~/Scripts/jquery-{version}.js",
+                       "~/Scripts/jquery-3.3.1.min.js",
                        "~/Scripts/jquery.slimscroll.min.js",
                        "~/Scripts/jquery.mask.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            //// Use the development version of Modernizr to develop with and learn from. Then, when you're
-            //// ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Scripts/modernizr-*"));
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
-                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap.min.js",
                       "~/Scripts/bootstrap-datepicker.min.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/bootbox.min.js",
@@ -35,10 +30,11 @@ namespace ControleEstoque.MVC
                     "~/Content/bootstrap-select.min.css",
                     "~/Content/bootstrap-datepicker3.min.css",
                     "~/Content/font-awesome.min.css",
-                    "~/Content/Site.css",
+                    "~/Content/ionicons.min.css",                    
                     "~/Content/AdminLTE.min.css",
                     "~/Content/_all-skins.css",
-                    "~/Content/sweetalert2.min.css"));
+                    "~/Content/sweetalert2.min.css",
+                    "~/Content/Site.css"));
 
             //DataTables
             bundles.Add(new StyleBundle("~/Bundles/datatables/css").Include(
@@ -59,8 +55,7 @@ namespace ControleEstoque.MVC
                 "~/Scripts/moment.min.js",
                 "~/Scripts/validator.min.js",
                 "~/Scripts/fastclick.min.js",
-                "~/Scripts/adminlte.js",
-                "~/Scripts/init.js"));
+                "~/Scripts/adminlte.js"));
         }
     }
 }

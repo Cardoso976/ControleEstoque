@@ -257,6 +257,7 @@
     <Content Include="Content\bootstrap-datepicker3.min.css" />
     <Content Include="Content\bootstrap-select.min.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\ionicons.min.css" />
     <Content Include="Content\_all-skins.css" />
     <Content Include="Content\Imagens\f83ee548-5219-4a8f-9a55-3fa83816f052.jpg" />
     <Content Include="Content\sweetalert2.min.css" />
@@ -267,7 +268,6 @@
     <Content Include="Scripts\adminlte.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\fastclick.min.js" />
-    <Content Include="Scripts\jquery.inputmask.bundle.min.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\validator.min.js" />
@@ -285,7 +285,6 @@
     <Content Include="Scripts\Cadastros\CadUnidadeMedida.js" />
     <Content Include="Scripts\Cadastros\CadFornecedor.js" />
     <Content Include="Scripts\dataTables.buttons.min.js" />
-    <Content Include="Scripts\icheck.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\sweetalert2.min.js" />
@@ -294,7 +293,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootbox.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -304,18 +302,11 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Cadastros\CadPais.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\vfs_fonts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -386,8 +377,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControleEstoque.Application\ControleEstoque.Application.csproj">
