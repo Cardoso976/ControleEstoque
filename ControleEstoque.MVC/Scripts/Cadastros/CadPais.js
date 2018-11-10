@@ -42,7 +42,7 @@ function getTabela() {
             ],
             ajax: '/Pais/GetPaises',
             columns: [
-                { "data": "PaisId" },
+                { "data": "PaisId", "visible": false },
                 { "data": "Descricao" },
                 { "data": "Codigo" },
                 { "data": "Ativo", "render": simple_checkbox},

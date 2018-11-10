@@ -42,7 +42,7 @@ function getTabela() {
             ],
             ajax: '/GrupoProduto/GetGrupoProdutos',
             columns: [
-                { "data": "GrupoProdutoId" },
+                { "data": "GrupoProdutoId", "visible": false },
                 { "data": "Descricao" },
                 { "data": "Ativo", "render": simple_checkbox },
                 {

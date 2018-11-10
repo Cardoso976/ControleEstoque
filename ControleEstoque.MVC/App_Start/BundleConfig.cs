@@ -10,6 +10,7 @@ namespace ControleEstoque.MVC
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                        "~/Scripts/jquery-{version}.js",
+                       "~/Scripts/jquery.slimscroll.min.js",
                        "~/Scripts/jquery.mask.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -22,6 +23,7 @@ namespace ControleEstoque.MVC
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/bootstrap-datepicker.min.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/bootbox.min.js",
                       "~/Scripts/sweetalert2.min.js"));
@@ -29,44 +31,36 @@ namespace ControleEstoque.MVC
             //AdminLTE
             bundles.Add(new StyleBundle("~/Bundles/adminlte/css").Include(
                     "~/Content/bootstrap.min.css",
-                    "~/Content/Buttons-1.5.2/css/buttons.bootstrap.min.css",
-                    "~/Content/css/bootstrap-select.css",
-                    "~/Content/css/icheck/blue.css",
-                    "~/Content/css/bootstrap-datepicker3.min.css",
-                    "~/Content/css/font-awesome.min.css",
-                    "~/Content/Site.css")
-                .Include("~/Content/css/skins/_all-skins.css", new CssRewriteUrlTransformAbsolute())
-                .Include("~/Content/css/AdminLTE.css", new CssRewriteUrlTransformAbsolute()));
+                    "~/Content/buttons.bootstrap.min.css",
+                    "~/Content/bootstrap-select.min.css",
+                    "~/Content/bootstrap-datepicker3.min.css",
+                    "~/Content/font-awesome.min.css",
+                    "~/Content/Site.css",
+                    "~/Content/AdminLTE.min.css",
+                    "~/Content/_all-skins.css",
+                    "~/Content/sweetalert2.min.css"));
 
             //DataTables
             bundles.Add(new StyleBundle("~/Bundles/datatables/css").Include(
-                 "~/Content/DataTables-1.10.18/css/dataTables.bootstrap.min.css",
-                 "~/Content/Buttons-1.5.2/css/buttons.bootstrap.min.css",
-                 "~/Content/sweetalert2.min.css"));
+                 "~/Content/DataTables-1.10.18/css/dataTables.bootstrap.min.css"));
 
             //DataTables
             bundles.Add(new ScriptBundle("~/Bundles/datatables/js").Include(
-                "~/Content/DataTables-1.10.18/js/jquery.dataTables.min.js",
-                "~/Content/DataTables-1.10.18/js/dataTables.bootstrap.min.js",
+                "~/Scripts/jquery.dataTables.min.js",
+                "~/Scripts/dataTables.bootstrap.min.js",
                 "~/Scripts/dataTables.buttons.min.js",
-                "~/Content/pdfmake-0.1.36/pdfmake.min.js",
+                "~/Scripts/pdfmake.js",
                 "~/Scripts/vfs_fonts.js",
                 "~/Scripts/buttons.html5.min.js",
                 "~/Scripts/buttons.print.min.js"));
 
-
             //AdminLTE
             bundles.Add(new ScriptBundle("~/Bundles/adminltejs").Include(
-                "~/Content/js/plugins/moment/moment.js",
-                "~/Content/js/plugins/datepicker/bootstrap-datepicker.js",
-                "~/Content/js/plugins/slimscroll/jquery.slimscroll.js",
-                "~/Content/js/plugins/validator.js",
-                "~/Content/js/icheck/icheck.min.js",
-                "~/Content/js/plugins/inputmask/jquery.inputmask.bundle.js",
-                "~/Content/js/plugins/fastclick/fastclick.js",
-                "~/Content/js/adminlte.js",
-                "~/Content/js/init.js"));
-
+                "~/Scripts/moment.min.js",
+                "~/Scripts/validator.min.js",
+                "~/Scripts/fastclick.min.js",
+                "~/Scripts/adminlte.js",
+                "~/Scripts/init.js"));
         }
     }
 }

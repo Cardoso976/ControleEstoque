@@ -42,7 +42,7 @@ function getTabela() {
             ],
             ajax: '/LocalArmazenamento/GetLocalArmazenamento',
             columns: [
-                { "data": "LocalArmazenamentoId" },
+                { "data": "LocalArmazenamentoId", "visible": false },
                 { "data": "Descricao" },
                 { "data": "Ativo", "render": simple_checkbox },
                 {

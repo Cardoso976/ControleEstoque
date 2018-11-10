@@ -42,7 +42,7 @@ function getTabela() {
             ],
             ajax: '/Cidade/GetCidades',
             columns: [
-                { "data": "CidadeId" },
+                { "data": "CidadeId", "visible": false },
                 { "data": "Descricao" },
                 { "data": "Ativo", "render": simple_checkbox },
                 {

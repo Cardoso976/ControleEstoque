@@ -61,7 +61,7 @@ function getTabela() {
             ],
             ajax: '/Fornecedor/GetFornecedores',
             columns: [
-                { "data": "FornecedorId" },
+                { "data": "FornecedorId", "visible": false },
                 { "data": "Nome" },
                 { "data": "NumDocumento" },
                 { "data": "Contato" },

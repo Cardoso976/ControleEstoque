@@ -301,7 +301,6 @@ function get_param() {
 }
 
 function abrir_form(dados) {
-    debugger;
     set_dados_form(dados);
 
     var modal_cadastro = $('#modal_cadastro');

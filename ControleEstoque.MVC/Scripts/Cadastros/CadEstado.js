@@ -42,7 +42,7 @@ function getTabela() {
             ],
             ajax: '/Estado/GetEstados',
             columns: [
-                { "data": "EstadoId" },
+                { "data": "EstadoId", "visible": false },
                 { "data": "Descricao" },
                 { "data": "Uf" },
                 { "data": "Ativo", "render": simple_checkbox},

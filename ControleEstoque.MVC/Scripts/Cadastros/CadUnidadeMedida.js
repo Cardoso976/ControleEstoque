@@ -42,7 +42,7 @@ function getTabela() {
             ],
             ajax: '/UnidadeMedida/GetUnidadesMedidas',
             columns: [
-                { "data": "UnidadeMedidaId" },
+                { "data": "UnidadeMedidaId", "visible": false },
                 { "data": "Descricao" },
                 { "data": "Sigla" },
                 { "data": "Ativo", "render": simple_checkbox },

@@ -42,7 +42,7 @@ function getTabela() {
             ],
             ajax: '/MarcaProduto/GetMarcas',
             columns: [
-                { "data": "MarcaProdutoId" },
+                { "data": "MarcaProdutoId", "visible": false },
                 { "data": "Descricao" },
                 { "data": "Ativo", "render": simple_checkbox },
                 {
