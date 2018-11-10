@@ -16,3 +16,7 @@
 .fornecedor > .modal-dialog {
     width: 55% !important;
 }
+
+table {
+    width: 100% !important;
+}
