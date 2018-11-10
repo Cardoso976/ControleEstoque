@@ -34,6 +34,10 @@
                 <hr />
                 @Html.ValidationSummary("", new { @class = "text-danger" })
                 <div class="form-group has-feedback">
+                    @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", placeholder = "Nome Completo" })
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
@@ -55,7 +59,7 @@
             }
 
 
-            @Html.ActionLink("Possui uma conta?", "Login")
+            @Html.ActionLink("Já possui uma conta?", "Login")
         </div>
         <!-- /.form-box -->
     </div>
