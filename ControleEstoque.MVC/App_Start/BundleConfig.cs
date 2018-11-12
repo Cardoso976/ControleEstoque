@@ -12,8 +12,8 @@ namespace ControleEstoque.MVC
                        "~/Scripts/jquery.slimscroll.min.js",
                        "~/Scripts/jquery.mask.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            //            "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
                        "~/Scripts/bootstrap.min.js",
