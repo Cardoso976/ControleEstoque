@@ -11,9 +11,14 @@ namespace ControleEstoque.MVC
                        "~/Scripts/jquery-3.3.1.min.js",
                        "~/Scripts/jquery.slimscroll.min.js",
                        "~/Scripts/jquery.mask.js"));
+            
+            //iziToast
+            bundles.Add(new ScriptBundle("~/bundles/iziToast/js").Include(
+                        "~/Scripts/iziToast.min.js"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-            //            "~/Scripts/jquery.validate*"));
+            //iziToast
+            bundles.Add(new StyleBundle("~/bundles/iziToast/css").Include(
+                        "~/Content/iziToast.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
                        "~/Scripts/bootstrap.min.js",
@@ -55,6 +60,7 @@ namespace ControleEstoque.MVC
                        "~/Scripts/validator.min.js",
                        "~/Scripts/fastclick.min.js",
                        "~/Scripts/adminlte.js"));
+
         }
     }
 }

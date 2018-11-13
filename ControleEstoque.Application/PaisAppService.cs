@@ -1,4 +1,5 @@
-﻿using ControleEstoque.Application.Interface;
+﻿using System.Collections.Generic;
+using ControleEstoque.Application.Interface;
 using ControleEstoque.Domain.Entities;
 using ControleEstoque.Domain.Interfaces.Services;
 
@@ -12,6 +13,11 @@ namespace ControleEstoque.Application
             : base(paisService)
         {
             _paisService = paisService;
+        }
+
+        public IEnumerable<Pais> GetAtivos()
+        {
+           return _paisService.GetAtivos();
         }
     }
 }

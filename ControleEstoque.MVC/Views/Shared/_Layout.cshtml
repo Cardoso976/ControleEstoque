@@ -16,6 +16,7 @@
     <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" />
     @Styles.Render("~/Bundles/adminlte/css")
     @Styles.Render("~/Bundles/datatables/css")
+    @Styles.Render("~/bundles/iziToast/css")
 </head>
 <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
@@ -40,10 +41,10 @@
 
     <script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
     @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/jqueryval")*@
     @Scripts.Render("~/bundles/bootstrap/js")
     @Scripts.Render("~/Bundles/adminltejs")
     @Scripts.Render("~/Bundles/datatables/js")
+    @Scripts.Render("~/bundles/iziToast/js")
     <script src="~/Scripts/Account/AccountMenu.js"></script>
     @RenderSection("scripts", required: false)
 </body>

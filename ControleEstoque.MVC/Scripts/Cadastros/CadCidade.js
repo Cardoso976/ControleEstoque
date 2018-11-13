@@ -117,6 +117,11 @@ function getTabela() {
                                 'Seu dado foi excluído.',
                                 'success'
                             )
+                        } else {
+                            iziToast.error({
+                                title: 'Erro',
+                                message: response,
+                            });
                         }
                     })
                         .fail(function () {

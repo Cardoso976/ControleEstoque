@@ -24,7 +24,7 @@ namespace ControleEstoque.MVC.Controllers
         // GET: Fornecedor
         public ActionResult Index()
         {
-            ViewBag.Paises = _paisApp.GetAll();
+            ViewBag.Paises = _paisApp.GetAtivos();
             return View();
         }
 
