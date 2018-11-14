@@ -218,6 +218,7 @@
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
+    <Compile Include="Controllers\EntradaProdutoController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\EstadoController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
@@ -272,6 +273,7 @@
     <Content Include="Scripts\fastclick.min.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\Operacoes\EntradaProduto.js" />
     <Content Include="Scripts\validator.min.js" />
     <Content Include="Scripts\pdfmake.js" />
     <Content Include="Scripts\Account\AccountMenu.js" />
@@ -372,6 +374,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
+    <Content Include="Views\EntradaProdutos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControleEstoque.Application\ControleEstoque.Application.csproj">

@@ -104,7 +104,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 @Html.Label("ddl_pais", "País", new { @class = "control-label" })
-                                @Html.DropDownList("ddl_pais", new SelectList(ViewBag.Paises, "PaisId", "Descricao"), new { @class = "form-control" })
+                                @Html.DropDownList("ddl_pais", new SelectList(ViewBag.Paises, "PaisId", "Descricao"), string.Empty, new { @class = "form-control" })
                             </div>
                         </div>
                         <div class="row">
