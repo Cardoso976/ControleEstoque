@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using ControleEstoque.Domain.Entities;
+﻿using ControleEstoque.Domain.Entities;
 using ControleEstoque.Domain.Interfaces.Repositories;
 using ControleEstoque.Infra.Data.Contexto;
+using System;
+using System.Collections.Generic;
 
 namespace ControleEstoque.Infra.Data.Repositories
 {
@@ -32,10 +31,7 @@ namespace ControleEstoque.Infra.Data.Repositories
                             Data = data
                         });
 
-                        Db.Database.ExecuteSqlCommand(
-                            @"UPDATE Produto" +
-                            "SET QuantidadeEstoque= QuantidadeEstoque + " + produto.Value + " " +
-                            "WHERE ProdutoId=" + produto.Key + ";");
+                        Db.Database.ExecuteSqlCommand(@"UPDATE Produto SET QuantidadeEstoque= QuantidadeEstoque + " + produto.Value + "WHERE ProdutoId=" + produto.Key + ";");
                     }
 
                     Db.SaveChanges();

@@ -49,7 +49,8 @@ namespace ControleEstoque.MVC.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new RetornoViewModel { Erro = ex.InnerException.Message == null ? ex.Message : ex.InnerException.Message });
+                var ret = ex.InnerException.Message ?? ex.Message;
+                return Json(new RetornoViewModel { Erro = ret });
             }
 
         }

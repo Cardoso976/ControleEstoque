@@ -45,7 +45,7 @@ var getNovaLinha = function (linha) {
             '        </select>' +
             '    </td>' +
             '    <td>' +
-            ' <input type="number" id="txt_quantidade_' + linha + '" class="form-control" value="">' +
+            ' <input type="number" id="txt_quantidade_' + linha + '" class="form-control" value="" min=0>' +
             '    </td>' +
             '</tr>';
     return texto;
@@ -100,7 +100,11 @@ $(document).ready(function () {
             $.post(url, add_anti_forgery_token(dados), function (response) {
                 if (response.Sucesso != null) {
                     $('#txt_numero').val(response.Sucesso);
-                    swal('Sucesso', 'Entrada de produtos salva com sucesso.', 'info');
+                    iziToast.success({
+                        title: 'Sucesso',
+                        message: 'Entrada de produtos salva com sucesso.',
+                        position: 'topRight'
+                    });
                 } else {
                     iziToast.error({
                         title: 'Erro',
