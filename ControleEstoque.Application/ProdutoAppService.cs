@@ -1,8 +1,7 @@
-﻿using System.IO;
-using System.Web;
-using ControleEstoque.Application.Interface;
+﻿using ControleEstoque.Application.Interface;
 using ControleEstoque.Domain.Entities;
 using ControleEstoque.Domain.Interfaces.Services;
+using System.Collections.Generic;
 
 namespace ControleEstoque.Application
 {
@@ -19,6 +18,11 @@ namespace ControleEstoque.Application
         public string RecuperarImagemPeloId(int id)
         {
             return _produtoService.RecuperarImagemPeloId(id);
+        }
+
+        public IEnumerable<Produto> RecuperarProdutosAtivos()
+        {
+            return _produtoService.RecuperarProdutosAtivos();
         }
     }
 }

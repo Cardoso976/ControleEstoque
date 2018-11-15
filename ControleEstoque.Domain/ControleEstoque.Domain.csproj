@@ -33,6 +33,7 @@
   <ItemGroup>
     <Compile Include="Entities\Cidade.cs" />
     <Compile Include="Entities\Endereco.cs" />
+    <Compile Include="Entities\EntradaProduto.cs" />
     <Compile Include="Entities\Enum\TipoPessoa.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\Fornecedor.cs" />
@@ -46,6 +47,7 @@
     <Compile Include="Interfaces\Repositories\ICidadeRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
     <Compile Include="Interfaces\Repositories\IEnderecoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEntradaProdutoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IEstadoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFornecedorRepository.cs" />
     <Compile Include="Interfaces\Repositories\IGrupoProdutoRepository.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Interfaces\Services\ICidadeService.cs" />
     <Compile Include="Interfaces\Services\IEnderecoService.cs" />
+    <Compile Include="Interfaces\Services\IEntradaProdutoService.cs" />
     <Compile Include="Interfaces\Services\IEstadoService.cs" />
     <Compile Include="Interfaces\Services\IFornecedorService.cs" />
     <Compile Include="Interfaces\Services\IGrupoProdutoService.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CidadeService.cs" />
     <Compile Include="Services\EnderecoService.cs" />
+    <Compile Include="Services\EntradaProdutoService.cs" />
     <Compile Include="Services\EstadoService.cs" />
     <Compile Include="Services\FornecedorService.cs" />
     <Compile Include="Services\GrupoProdutoService.cs" />

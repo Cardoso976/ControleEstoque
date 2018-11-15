@@ -7,17 +7,17 @@ namespace ControleEstoque.Application
 {
     public class CidadeAppService : AppServiceBase<Cidade>, ICidadeAppService
     {
-        private readonly ICidadeService _cidadeAppService;
+        private readonly ICidadeService _cidadeService;
 
         public CidadeAppService(ICidadeService cidadeService) 
             : base(cidadeService)
         {
-            _cidadeAppService = cidadeService;
+            _cidadeService = cidadeService;
         }
 
         public IEnumerable<Cidade> GetCidadesByEstado(int estadoId)
         {
-           return _cidadeAppService.GetCidadesByEstado(estadoId);
+           return _cidadeService.GetCidadesByEstado(estadoId);
         }
     }
 }

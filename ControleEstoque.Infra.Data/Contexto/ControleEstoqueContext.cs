@@ -17,6 +17,7 @@ namespace ControleEstoque.Infra.Data.Contexto
 
         public DbSet<Cidade> Cidades { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<EntradaProduto> EntradaProdutos { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<GrupoProduto> GrupoProdutos { get; set; }
@@ -46,6 +47,7 @@ namespace ControleEstoque.Infra.Data.Contexto
             modelBuilder.Configurations.Add(new CidadeConfiguration());
             modelBuilder.Configurations.Add(new EnderecoConfiguration());
             modelBuilder.Configurations.Add(new EstadoConfiguration());
+            modelBuilder.Configurations.Add(new EntradaProdutoConfiguration());
             modelBuilder.Configurations.Add(new FornecedorConfiguration());
             modelBuilder.Configurations.Add(new GrupoProdutoConfiguration());
             modelBuilder.Configurations.Add(new LocalArmazenamentoConfiguration());

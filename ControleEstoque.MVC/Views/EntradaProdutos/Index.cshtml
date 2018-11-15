@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ControleEstoque.MVC.ViewModels.PaisViewModel>
+﻿@model IEnumerable<ControleEstoque.MVC.ViewModels.EntradaSaidaProdutoViewModel>
 
 @{
     ViewBag.Title = "Entrada de Produtos";
@@ -76,7 +76,7 @@
 </div>
 @section Scripts{
     <script>
-        var produtos = [{ ProdutoId: 1, Descricao: 'Teste' }, { ProdutoId: 2, Descricao: 'Teste2' }, { ProdutoId: 3, Descricao: 'Teste3' }, { ProdutoId: 4, Descricao: 'Teste4' }];
+        var produtos = '@(ViewBag.Produtos)';
     </script>
     <script src="~/Scripts/Operacoes/EntradaProduto.js"></script>
 

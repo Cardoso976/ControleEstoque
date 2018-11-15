@@ -44,12 +44,14 @@
     <Compile Include="AppServiceBase.cs" />
     <Compile Include="CidadeAppService.cs" />
     <Compile Include="EnderecoAppService.cs" />
+    <Compile Include="EntradaProdutoAppService.cs" />
     <Compile Include="EstadoAppService.cs" />
     <Compile Include="FornecedorAppService.cs" />
     <Compile Include="GrupoProdutoAppService.cs" />
     <Compile Include="Interface\IAppServiceBase.cs" />
     <Compile Include="Interface\ICidadeAppService.cs" />
     <Compile Include="Interface\IEnderecoAppService.cs" />
+    <Compile Include="Interface\IEntradaProdutoAppService.cs" />
     <Compile Include="Interface\IEstadoAppService.cs" />
     <Compile Include="Interface\IFornecedorAppService.cs" />
     <Compile Include="Interface\IGrupoProdutoAppService.cs" />

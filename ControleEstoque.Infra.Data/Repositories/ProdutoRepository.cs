@@ -11,5 +11,10 @@ namespace ControleEstoque.Infra.Data.Repositories
         {
             return Db.Produtos.Where(p => p.ProdutoId == id).Select(x => x.Imagem).SingleOrDefault();
         }
+
+        public IEnumerable<Produto> RecuperarProdutosAtivos()
+        {
+            return Db.Produtos.Where(p => p.Ativo);
+        }
     }
 }

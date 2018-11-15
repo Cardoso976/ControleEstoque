@@ -1,92 +1,120 @@
-﻿var sequencia = 1;
-function formatar_data(data) {
-    var dia = ('0' + data.getDate()).slice(-2);
-    var mes = ('0' + (data.getMonth() + 1)).slice(-2);
-    return data.getFullYear() + "-" + mes + "-" + dia;
-}
-function incluir_linha_produto() {
+﻿var sequencia = 1,
+    produtos = [];
+var getProdutos = function () {
+    $.ajax({
+        type: "GET",
+        url: "/EntradaProdutos/GetProdutos",
+        async: false,
+        success: function (result) {
+            if (result.data == null || result.data.length == 0) {
+                iziToast.info({
+                    title: 'Info',
+                    message: 'Nenhum Produto Encontrado',
+                    position: 'topRight'
+                });
+            }
+            else {
+                produtos = result.data;
+            }
+        }
+    });
+};
+
+getProdutos();
+
+var incluirLinhaProduto = function () {
     $('#grid tbody').append(getNovaLinha(sequencia));
     sequencia++;
-}
+};
 
-function getOptionsProdutos() {
-    var linhas;
+var getOptionsProdutos = function () {
+    let linhas;
     produtos.forEach(produto => {
         linhas += '<option value="' + produto.ProdutoId + '">' + produto.Descricao + '</option>';
     });
     return linhas;
-} 
+};
 
-function getNovaLinha(linha) {
+var getNovaLinha = function (linha) {
     let linhas = getOptionsProdutos(),
         texto =
-        '<tr>' +
-        '    <td>' +
-        '        <select name="" id="dd_produto_' + linha + '" class="form-control">' +
-        '           '+linhas+''+
-        '        </select>' +
-        '    </td>' +
-        '    <td>' +
-        ' <input type="number" id="txt_quantidade_' + linha + '" class="form-control" value="">' +
-        '    </td>' +
-        '</tr>';
-
+            '<tr>' +
+            '    <td>' +
+            '        <select name="" id="dd_produto_' + linha + '" class="form-control">' +
+            '           ' + linhas + '' +
+            '        </select>' +
+            '    </td>' +
+            '    <td>' +
+            ' <input type="number" id="txt_quantidade_' + linha + '" class="form-control" value="">' +
+            '    </td>' +
+            '</tr>';
     return texto;
-}
+};
 
-function limpar_tela() {
+var formatarData = function (data) {
+    let dia = ('0' + data.getDate()).slice(-2);
+    let mes = ('0' + (data.getMonth() + 1)).slice(-2);
+    return data.getFullYear() + "-" + mes + "-" + dia;
+};
+
+var limparTela = function () {
     $('#txt_numero').val('');
     $('#grid tbody').empty();
-    incluir_linha_produto();
-}
-function obter_lista_entradas() {
-    var ret = [];
+    incluirLinhaProduto();
+};
+
+var obterListaEntradas = function () {
+    let ret = [];
     $('#grid tbody tr').each(function (index, item) {
         var txt_quantidade = $(this).find('input'),
             ddl_produto = $(this).find('select'),
             quantidade = parseInt(txt_quantidade.val()),
             produto = parseInt(ddl_produto.val());
         if (quantidade > 0) {
-            ret.push({ IdProduto: produto, Quantidade: quantidade });
+            ret.push({ ProdutoId: produto, Quantidade: quantidade });
         }
     });
     return ret;
 }
+
 $(document).ready(function () {
-    var hoje = new Date();
-    $('#txt_data').val(formatar_data(hoje));
-    limpar_tela();
+    let hoje = new Date();
+    $('#txt_data').val(formatarData(hoje));
+    limparTela();
 })
     .on('click', '#btn_incluir', function () {
-        incluir_linha_produto();
+        incluirLinhaProduto();
     })
     .on('click', '#btn_salvar', function () {
-        var btn = $(this);
-        var lista_entradas = obter_lista_entradas();
+        let btn = $(this);
+        var lista_entradas = obterListaEntradas();
         if (lista_entradas.length == 0) {
             swal('Aviso', 'Para salvar, você deve informar produtos com quantidades.', 'warning');
         }
         else {
-            var url = '@Url.Action("Salvar", "OperEntradaProduto")',
+            var url = '/EntradaProdutos/Salvar',
                 dados = {
                     data: $('#txt_data').val(),
                     produtos: JSON.stringify(lista_entradas)
                 };
             $.post(url, add_anti_forgery_token(dados), function (response) {
-                if (response.OK) {
-                    $('#txt_numero').val(response.Numero);
+                if (response.Sucesso != null) {
+                    $('#txt_numero').val(response.Sucesso);
                     swal('Sucesso', 'Entrada de produtos salva com sucesso.', 'info');
+                } else {
+                    iziToast.error({
+                        title: 'Erro',
+                        message: response.Erro,
+                        position: 'topRight'
+                    });
                 }
-            })
-                .fail(function () {
-                    swal('Aviso', 'Não foi possível salvar a entrada de produtos.', 'warning');
-                });
+            });
         }
     })
     .on('click', '#btn_cancelar', function () {
-        var lista_entradas = obter_lista_entradas();
+        var lista_entradas = obterListaEntradas();
         if (lista_entradas.length == 0 || $('#txt_numero').val() != '') {
-            limpar_tela();
+            limparTela();
         }
         else {
             swal({
@@ -100,7 +128,7 @@ $(document).ready(function () {
                 confirmButtonText: 'Sim'
             }).then(function (opcao) {
                 if (opcao.value) {
-                    limpar_tela();
+                    limparTela();
                 }
             });
         }

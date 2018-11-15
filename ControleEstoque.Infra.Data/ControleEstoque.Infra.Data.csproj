@@ -51,6 +51,7 @@
     <Compile Include="Contexto\ControleEstoqueContext.cs" />
     <Compile Include="EntityConfig\CidadeConfiguration.cs" />
     <Compile Include="EntityConfig\EnderecoConfiguration.cs" />
+    <Compile Include="EntityConfig\EntradaProdutoConfiguration.cs" />
     <Compile Include="EntityConfig\EstadoConfiguration.cs" />
     <Compile Include="EntityConfig\FornecedorConfiguration.cs" />
     <Compile Include="EntityConfig\GrupoProdutoConfiguration.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CidadeRepository.cs" />
     <Compile Include="Repositories\EnderecoRepository.cs" />
+    <Compile Include="Repositories\EntradaProdutoRepository.cs" />
     <Compile Include="Repositories\EstadoRepository.cs" />
     <Compile Include="Repositories\FornecedorRepository.cs" />
     <Compile Include="Repositories\GrupoProdutoRepository.cs" />

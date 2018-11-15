@@ -1,89 +1,57 @@
-﻿using System;
+﻿using AutoMapper;
+using ControleEstoque.Application.Interface;
+using ControleEstoque.Domain.Entities;
+using ControleEstoque.Domain.Entities.Binders;
+using ControleEstoque.MVC.ViewModels;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ControleEstoque.MVC.Controllers
 {
+    [Authorize]
     public class EntradaProdutosController : Controller
     {
+        private readonly IEntradaProdutoAppService _entradaProdutoAppService;
+        private readonly IProdutoAppService _produtoAppService;
+
+        public EntradaProdutosController(IProdutoAppService produtoAppService, IEntradaProdutoAppService entradaProdutoAppService)
+        {
+            _entradaProdutoAppService = entradaProdutoAppService;
+            _produtoAppService = produtoAppService;
+        }
+
         // GET: EntradaProduto
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: EntradaProduto/Details/5
-        public ActionResult Details(int id)
+        public JsonResult GetProdutos()
         {
-            return View();
+            var produtosDomain = _produtoAppService.RecuperarProdutosAtivos();
+            var produtos = Mapper.Map<IEnumerable<Produto>, IEnumerable<ProdutoViewModel>>(produtosDomain);
+
+            return Json(new { data = produtos }, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: EntradaProduto/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: EntradaProduto/Create
+        // POST: EntradaProduto/Salvar
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public JsonResult Salvar([ModelBinder(typeof(EntradaSaidaProdutoViewModelModelBinder))]EntradaSaidaProdutoViewModel dados)
         {
             try
             {
-                // TODO: Add insert logic here
+                var numPedido = _entradaProdutoAppService.Add(dados.Data, dados.Produtos);
+                var ok = (numPedido != "");
 
-                return RedirectToAction("Index");
+                return Json(new RetornoViewModel { Sucesso = numPedido });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return Json(new RetornoViewModel { Erro = ex.InnerException.Message == null ? ex.Message : ex.InnerException.Message });
             }
-        }
 
-        // GET: EntradaProduto/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: EntradaProduto/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: EntradaProduto/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: EntradaProduto/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

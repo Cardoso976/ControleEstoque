@@ -16,6 +16,9 @@ namespace ControleEstoque.MVC
             bundles.Add(new ScriptBundle("~/bundles/iziToast/js").Include(
                         "~/Scripts/iziToast.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/addAntiForgeryToken").Include(
+                        "~/Scripts/comum.js"));
+
             //iziToast
             bundles.Add(new StyleBundle("~/bundles/iziToast/css").Include(
                         "~/Content/iziToast.min.css"));

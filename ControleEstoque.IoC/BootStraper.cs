@@ -57,6 +57,10 @@ namespace ControleEstoque.IoC
             container.RegisterPerWebRequest<IProdutoService, ProdutoService>();
             container.RegisterPerWebRequest<IProdutoRepository, ProdutoRepository>();
 
+            container.RegisterPerWebRequest<IEntradaProdutoAppService, EntradaProdutoAppService>();
+            container.RegisterPerWebRequest<IEntradaProdutoService, EntradaProdutoService>();
+            container.RegisterPerWebRequest<IEntradaProdutoRepository, EntradaProdutoRepository>();
+
             //Identity IoC
             container.RegisterPerWebRequest<ApplicationDbContext>();
 
