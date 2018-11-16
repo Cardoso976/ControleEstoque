@@ -6,7 +6,7 @@ using ControleEstoque.Infra.Data.Contexto;
 
 namespace ControleEstoque.Infra.Data.Repositories
 {
-    public class EntradaProdutoRepository : IEntradaProdutoRepository, IDisposable
+    public class SaidaProdutoRepository : IDisposable, ISaidaProdutoRepository
     {
         protected ControleEstoqueContext Db = new ControleEstoqueContext();
 
@@ -22,19 +22,16 @@ namespace ControleEstoque.Infra.Data.Repositories
                 {
                     foreach (var produto in produtos)
                     {
-                        Db.EntradaProdutos.Add(new EntradaProduto
+                        Db.SaidaProdutos.Add(new SaidaProduto
                         {
+                            Data = data,
                             Numero = numPedido,
                             ProdutoId = produto.Key,
-                            Quantidade = produto.Value,
-                            Data = data
+                            Quantidade = produto.Value
                         });
-
-                        Db.Database.ExecuteSqlCommand(@"UPDATE Produto SET QuantidadeEstoque= QuantidadeEstoque + " + produto.Value + "WHERE ProdutoId=" + produto.Key + ";");
+                        
+                        Db.Database.ExecuteSqlCommand(@"UPDATE Produto SET QuantidadeEstoque= QuantidadeEstoque - " + produto.Value + "WHERE ProdutoId=" + produto.Key + ";");
                     }
-
-                    Db.SaveChanges();
-
                     transaction.Commit();
                     ret = numPedido;
                 }
@@ -43,14 +40,14 @@ namespace ControleEstoque.Infra.Data.Repositories
                     transaction.Rollback();
                     throw;
                 }
+
             }
             return ret;
         }
 
-
         public string GetNextSequenceValue()
         {
-            var rawQuery = Db.Database.SqlQuery<int>("SELECT NEXT VALUE FOR SEC_EntradaProduto;");
+            var rawQuery = Db.Database.SqlQuery<int>("SELECT NEXT VALUE FOR SEC_SaidaProduto;");
             var task = rawQuery.SingleAsync();
             int nextVal = task.Result;
 

@@ -230,6 +230,7 @@
     <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\SaidaProdutoController.cs" />
     <Compile Include="Controllers\UnidadeMedidaController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -276,6 +277,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\Operacoes\EntradaProduto.js" />
+    <Content Include="Scripts\Operacoes\SaidaProduto.js" />
     <Content Include="Scripts\validator.min.js" />
     <Content Include="Scripts\pdfmake.js" />
     <Content Include="Scripts\Account\AccountMenu.js" />
@@ -377,6 +379,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\EntradaProdutos\Index.cshtml" />
+    <Content Include="Views\SaidaProduto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControleEstoque.Application\ControleEstoque.Application.csproj">

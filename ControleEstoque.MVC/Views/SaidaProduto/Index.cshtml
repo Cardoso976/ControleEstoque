@@ -1,18 +1,21 @@
-﻿@model IEnumerable<ControleEstoque.MVC.ViewModels.EntradaSaidaProdutoViewModel>
-
-@{
-    ViewBag.Title = "Entrada de Produtos";
+﻿@{
+    ViewBag.Title = "Saída de produtos";
 }
+
 <style>
     #grid th:nth-child(2) {
         width: 150px;
     }
 
-    #entrada_produtos .row {
+    #grid th:nth-child(3) {
+        width: 70px;
+    }
+
+    #saida_produtos .row {
         margin: 15px 0;
     }
 </style>
-<link href="~/Content/Cadastros.css" rel="stylesheet" />
+
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -20,8 +23,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div style="margin: 15px" class="col-md-12">
-                            <div id="entrada_produtos" class="col-md-6 col-md-offset-3">
-                                <hr />
+                            <div id="saida_produtos" class="col-md-6 col-md-offset-3">
                                 <div id="msg_mensagem_aviso" class="text-danger invisivel"></div>
                                 <fieldset>
                                     @Html.AntiForgeryToken()
@@ -76,9 +78,6 @@
     </div>
 </div>
 @section Scripts{
-    <script>
-        var produtos = '@(ViewBag.Produtos)';
-    </script>
-    <script src="~/Scripts/Operacoes/EntradaProduto.js"></script>
-
+    <script src="~/Scripts/Operacoes/SaidaProduto.js"></script>
+    <script src="~/Scripts/comum.js"></script>
 }

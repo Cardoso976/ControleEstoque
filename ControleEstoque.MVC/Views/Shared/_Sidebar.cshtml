@@ -48,8 +48,11 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="@Url.IsLinkActive("Index", "EntradaProdutos")">
+                    <li class="@Url.IsLinkActive("Index", "EntradaProduto")">
                         <a href="@Url.Action("Index", "EntradaProdutos")"><span>Entrada de Produtos</span></a>
+                    </li>
+                    <li class="@Url.IsLinkActive("Index", "SaidaProduto")">
+                        <a href="@Url.Action("Index", "SaidaProduto")"><span>Saída de Produtos</span></a>
                     </li>
                 </ul>
             </li>

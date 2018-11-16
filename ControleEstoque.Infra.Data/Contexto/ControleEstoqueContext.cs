@@ -27,6 +27,7 @@ namespace ControleEstoque.Infra.Data.Contexto
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<UnidadeMedida> UnidadeMedidas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<SaidaProduto> SaidaProdutos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -55,6 +56,7 @@ namespace ControleEstoque.Infra.Data.Contexto
             modelBuilder.Configurations.Add(new PaisConfiguration());
             modelBuilder.Configurations.Add(new ProdutoConfiguration());
             modelBuilder.Configurations.Add(new UnidadeMedidaConfiguration());
+            modelBuilder.Configurations.Add(new SaidaProdutoConfiguration());
         }
 
         public override int SaveChanges()

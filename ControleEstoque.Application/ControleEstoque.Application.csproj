@@ -60,11 +60,13 @@
     <Compile Include="Interface\IPaisAppService.cs" />
     <Compile Include="Interface\IProdutoAppService.cs" />
     <Compile Include="Interface\IUnidadeMedidaAppService.cs" />
+    <Compile Include="Interface\ISaidaProdutoAppService.cs" />
     <Compile Include="LocalArmazenamentoAppService.cs" />
     <Compile Include="MarcaProdutoAppService.cs" />
     <Compile Include="PaisAppService.cs" />
     <Compile Include="ProdutoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaidaProdutoAppService.cs" />
     <Compile Include="UnidadeMedidaAppService.cs" />
   </ItemGroup>
   <ItemGroup>

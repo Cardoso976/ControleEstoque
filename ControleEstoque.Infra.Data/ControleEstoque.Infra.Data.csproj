@@ -59,6 +59,7 @@
     <Compile Include="EntityConfig\MarcaProdutoConfiguration.cs" />
     <Compile Include="EntityConfig\PaisConfiguration.cs" />
     <Compile Include="EntityConfig\ProdutoConfiguration.cs" />
+    <Compile Include="EntityConfig\SaidaProdutoConfiguration.cs" />
     <Compile Include="EntityConfig\UnidadeMedidaConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfig.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Repositories\PaisRepository.cs" />
     <Compile Include="Repositories\ProdutoRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\SaidaProdutoRepository.cs" />
     <Compile Include="Repositories\UnidadeMedidaRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>

@@ -42,6 +42,7 @@
     <Compile Include="Entities\MarcaProduto.cs" />
     <Compile Include="Entities\Pais.cs" />
     <Compile Include="Entities\Produto.cs" />
+    <Compile Include="Entities\SaidaProduto.cs" />
     <Compile Include="Entities\UnidadeMedida.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Interfaces\Repositories\ICidadeRepository.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Interfaces\Repositories\IPaisRepository.cs" />
     <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\ISaidaProdutoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUnidadeMedidaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Interfaces\Services\ICidadeService.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Interfaces\Services\IMarcaProdutoService.cs" />
     <Compile Include="Interfaces\Services\IPaisService.cs" />
     <Compile Include="Interfaces\Services\IProdutoService.cs" />
+    <Compile Include="Interfaces\Services\ISaidaProdutoService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Interfaces\Services\IUnidadeMedidaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +84,7 @@
     <Compile Include="Services\MarcaProdutoService.cs" />
     <Compile Include="Services\PaisService.cs" />
     <Compile Include="Services\ProdutoService.cs" />
+    <Compile Include="Services\SaidaProdutoService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\UnidadeMedidaService.cs" />
   </ItemGroup>
