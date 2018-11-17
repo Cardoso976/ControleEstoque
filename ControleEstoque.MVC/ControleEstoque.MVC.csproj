@@ -266,6 +266,7 @@
     <Content Include="Content\Imagens\f83ee548-5219-4a8f-9a55-3fa83816f052.jpg" />
     <Content Include="Content\sweetalert2.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\comum.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\iziToast.min.js" />
