@@ -3,7 +3,7 @@
 var getProdutos = function () {
     $.ajax({
         type: "GET",
-        url: "/EntradaProdutos/GetProdutos",
+        url: "/EntradaProduto/GetProdutos",
         async: false,
         success: function (result) {
             if (result.data == null || result.data.length == 0) {
@@ -97,7 +97,7 @@ $(document).ready(function () {
             swal('Aviso', 'Para salvar, você deve informar produtos com quantidades.', 'warning');
         }
         else {
-            var url = '/EntradaProdutos/Salvar',
+            var url = '/EntradaProduto/Salvar',
                 dados = {
                     data: $('#txt_data').val(),
                     produtos: JSON.stringify(lista_entradas)

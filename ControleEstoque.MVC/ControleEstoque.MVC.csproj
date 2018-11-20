@@ -379,7 +379,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
-    <Content Include="Views\EntradaProdutos\Index.cshtml" />
+    <Content Include="Views\EntradaProduto\Index.cshtml" />
     <Content Include="Views\SaidaProduto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
