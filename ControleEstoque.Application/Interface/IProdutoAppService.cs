@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Web;
 using ControleEstoque.Domain.Entities;
 
 namespace ControleEstoque.Application.Interface

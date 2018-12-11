@@ -1,5 +1,4 @@
 ﻿using ControleEstoque.Domain.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace ControleEstoque.Infra.Data.EntityConfig
