@@ -229,6 +229,7 @@
     <Compile Include="Controllers\MarcaProdutoController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\RelatorioPosicaoEstoqueController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\SaidaProdutoController.cs" />
     <Compile Include="Controllers\UnidadeMedidaController.cs" />
@@ -381,6 +382,8 @@
     <None Include="packages.config" />
     <Content Include="Views\EntradaProduto\Index.cshtml" />
     <Content Include="Views\SaidaProduto\Index.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioPosicaoEstoque.cshtml" />
+    <Content Include="Views\Relatorio\RelatorioPosicaoEstoqueView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControleEstoque.Application\ControleEstoque.Application.csproj">
@@ -398,6 +401,10 @@
     <ProjectReference Include="..\ControleEstoque.IoC\ControleEstoque.IoC.csproj">
       <Project>{fca01fab-3157-4ef6-989b-9b22c6fb52d8}</Project>
       <Name>ControleEstoque.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControleEstoque.Rotativa\ControleEstoque.Rotativa.csproj">
+      <Project>{d93faa11-31f0-4629-b53c-aa8680283529}</Project>
+      <Name>ControleEstoque.Rotativa</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

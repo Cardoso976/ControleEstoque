@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Posição no Estoque";
+}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div align="left">
+                                <a href="@Url.Action("ImpressaoPDF", "RelatorioPosicaoEstoque")" target="_blank" style="margin-bottom: 15px;" class="btn btn-default btn-imprimir" role="button"><i class="fa fa-file-pdf-o"></i></a>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Produto</th>
+                                        <th>Quantidade</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                @{
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Codigo</td>
+                                            <td>@item.Descricao</td>
+                                            <td>@item.QuantidadeEstoque</td>
+                                            <td>@item.PrecoVenda</td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

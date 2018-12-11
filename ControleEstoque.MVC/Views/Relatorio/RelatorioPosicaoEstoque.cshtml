@@ -1,0 +1,51 @@
+﻿@model List<ControleEstoque.MVC.ViewModels.ProdutoViewModel>
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Posição no Estoque</title>
+    @Styles.Render("~/Bundles/adminlte/css")
+    <style>
+        table th:nth-child(1) {
+            width: 7%;
+        }
+
+        table th:nth-child(3) {
+            width: 10%;
+        }
+
+        table th:nth-child(4) {
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-md-12 text-center">
+        <h3>Posição no Estoque</h3>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Codigo</td>
+                    <td>@item.Descricao</td>
+                    <td>@item.QuantidadeEstoque</td>
+                    <td>@item.PrecoVenda</td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>
